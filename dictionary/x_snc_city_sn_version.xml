@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="ServiceNow version" max_length="40" name="x_snc_city_sn_version" type="collection">
+        <element default="true" label="Active" max_length="40" name="active" type="boolean"/>
+        <element display="true" label="Label" max_length="40" name="label" type="string"/>
+    </element>
+</database>

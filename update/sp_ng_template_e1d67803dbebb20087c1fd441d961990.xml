@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_ng_template">
+    <sp_ng_template action="INSERT_OR_UPDATE">
+        <id>COLS-City-image-lightson</id>
+        <sp_widget display_value="COLS 3D City">acce3c10dbdfbe00c3beffa31d96190c</sp_widget>
+        <sys_class_name>sp_ng_template</sys_class_name>
+        <sys_created_by>sush.chandrashekar</sys_created_by>
+        <sys_created_on>2017-06-28 17:24:33</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>e1d67803dbebb20087c1fd441d961990</sys_id>
+        <sys_mod_count>13</sys_mod_count>
+        <sys_name>COLS-City-image-lightson</sys_name>
+        <sys_package display_value="City" source="x_snc_city">75d4ebaedb033e00c3beffa31d9619d8</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="City">75d4ebaedb033e00c3beffa31d9619d8</sys_scope>
+        <sys_update_name>sp_ng_template_e1d67803dbebb20087c1fd441d961990</sys_update_name>
+        <sys_updated_by>sush.chandrashekar</sys_updated_by>
+        <sys_updated_on>2017-06-28 22:51:37</sys_updated_on>
+        <template><![CDATA[<img src="{{c.initialimg}}" rwdimgmap alt="" usemap="#Map" />
+<map name="Map" id="Map" ng-click="c.changeImg('red')">
+    <area alt="" title="" href="javascript:void(0)" shape="poly" coords="821,1487,1001,1394,2411,2330" />
+    <area alt="" title="" href="javascript:void(0)" shape="poly" coords="2405,2324,2537,2261,1007,1394" />
+    <area alt="" title="" href="javascript:void(0)" shape="poly" coords="2540,2252,2396,2156,3842,1409" />
+    <area alt="" title="" href="javascript:void(0)" shape="poly" coords="4028,1502,3860,1409,2573,2240" />
+    <area alt="" title="" href="javascript:void(0)" shape="poly" coords="2405,2339,2426,2429,4040,1601" />
+    <area alt="" title="" href="javascript:void(0)" shape="poly" coords="4046,1604,4043,1523,2675,2213" />
+    <area alt="" title="" href="javascript:void(0)" shape="poly" coords="2399,2432,2396,2345,803,1583" />
+    <area alt="" title="" href="javascript:void(0)" shape="poly" coords="806,1499,803,1580,2357,2321" />
+    <area alt="" title="" href="javascript:void(0)" shape="poly" coords="807,4154,1008,4055,2406,4994" />
+    <area alt="" title="" href="javascript:void(0)" shape="poly" coords="2403,4994,2559,4907,1008,4052" />
+    <area alt="" title="" href="javascript:void(0)" shape="poly" coords="2565,4910,2403,4793,3849,4064" />
+    <area alt="" title="" href="javascript:void(0)" shape="poly" coords="4047,4166,3843,4061,2469,4973" />
+    <area alt="" title="" href="javascript:void(0)" shape="poly" coords="801,4157,798,4256,2412,5102" />
+    <area alt="" title="" href="javascript:void(0)" shape="poly" coords="2409,5099,2403,4997,798,4160" />
+    <area alt="" title="" href="javascript:void(0)" shape="poly" coords="2412,5105,2409,5003,4056,4274" />
+    <area alt="" title="" href="javascript:void(0)" shape="poly" coords="4050,4169,4053,4274,2571,4928" />
+    <area alt="" title="" href="javascript:void(0)" shape="poly" coords="798,3839,4044,3851,2409,4676" />
+    <area alt="" title="" href="javascript:void(0)" shape="poly" coords="804,3836,4047,3848,2436,2942" />
+    <area alt="" title="" href="javascript:void(0)" shape="poly" coords="267,390,1346,393,798,668,270,387,1347,392,813,92" />
+    <area alt="" title="" href="javascript:void(0)" shape="poly" coords="267,495,270,494,329,462,801,776" />
+    <area alt="" title="" href="javascript:void(0)" shape="poly" coords="801,777,849,744,332,464" />
+    <area alt="" title="" href="javascript:void(0)" shape="poly" coords="845,753,797,710,1286,465" />
+    <area alt="" title="" href="javascript:void(0)" shape="poly" coords="1349,500,1287,464,831,759" />
+</map>]]></template>
+    </sp_ng_template>
+</record_update>

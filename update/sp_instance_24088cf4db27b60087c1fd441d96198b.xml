@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_instance">
+    <sp_instance action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <glyph/>
+        <id/>
+        <order>1</order>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="1">07f7ccf4db27b60087c1fd441d961998</sp_column>
+        <sp_widget display_value="HTML">8679ef89cb21120000f8d856634c9c4f</sp_widget>
+        <sys_class_name>sp_instance</sys_class_name>
+        <sys_created_by>chuck.tomasi</sys_created_by>
+        <sys_created_on>2017-06-21 14:12:52</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>24088cf4db27b60087c1fd441d96198b</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>Get Your Own Copy!</sys_name>
+        <sys_package display_value="City" source="x_snc_city">75d4ebaedb033e00c3beffa31d9619d8</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="City">75d4ebaedb033e00c3beffa31d9619d8</sys_scope>
+        <sys_update_name>sp_instance_24088cf4db27b60087c1fd441d96198b</sys_update_name>
+        <sys_updated_by>chuck.tomasi</sys_updated_by>
+        <sys_updated_on>2017-06-26 17:50:09</sys_updated_on>
+        <title>Get Your Own Copy!</title>
+        <url/>
+        <widget_parameters><![CDATA[{
+	"html": {
+		"value": "<p>Any application that offers one or more links to the application source can be installed on your ServiceNow instance. It only takes a few&nbsp;simple steps for each applcation - create a copy of the app, install the app from GitHub, create&nbsp;demo data (optional).</p>\n<h2 style=\"font-weight: bold; color: #000;\">Prerequisites</h2>\n<ul>\n<li><strong>ServiceNow instance</strong> - If you don't already have one, you can get a free developer instance at the <a href=\"https://developer.servicenow.com/\">ServiceNow Developer Portal</a>.</li>\n<li><strong>GitHub account</strong> - Sign in or sign up for a free account at <a href=\"https://github.com\">GitHub</a>.</li>\n</ul>\n<h2 style=\"font-weight: bold; color: #000;\">Instructions</h2>\n<h2><strong style=\"color: blue;\">I. Create a copy of the application in GitHub.</strong></h2>\n<ol>\n<li>Login to GitHub.</li>\n<li>From the City of Lightspeed application page, click the link provided for the application's source code. This brings you to the GitHub page for that application.</li>\n<li>Click the Fork button in the upper right.</li>\n<ul>\n<li><img style=\"max-width: 100%; max-height: 480px;\" src=\"571d8878db27b60087c1fd441d961933.iix\" alt=\"\" /></li>\n</ul>\n<li>GitHub creates a copy of the application under your account.</li>\n<li>When complete, click the \"Clone or Download\" button, then click the clipboard icon to copy the URL to the clipboard.</li>\n<ul>\n<li><img style=\"max-width: 100%; max-height: 480px;\" src=\"95dd40f8db27b60087c1fd441d96198e.iix\" alt=\"\" /></li>\n</ul>\n</ol>\n<h2><strong style=\"color: blue;\">II. Install on ServiceNow</strong></h2>\n<ol>\n<li>Login to your ServiceNow instance with admin credentials.</li>\n<li>Navigate to <strong>System Applications&gt; Studio</strong>.</li>\n<li>Choose&nbsp;<strong>Import from Source Control</strong>.</li>\n<ul>\n<li><img style=\"max-width: 100%; max-height: 480px;\" src=\"08ae40f8db27b60087c1fd441d961996.iix\" alt=\"\" /></li>\n</ul>\n<li>Paste the GitHub URL you copied earlier in the URL field.</li>\n<li>Provide your GitHub login and password in the corresponding fields.</li>\n<li>Click&nbsp;<strong>Import</strong>.</li>\n<ul>\n<li><img style=\"max-width: 100%; max-height: 480px;\" src=\"101f40f8db27b60087c1fd441d9619f6.iix\" alt=\"\" /></li>\n</ul>\n<li>Start exploring in Studio!</li>\n</ol>\n<p>&nbsp;</p>\n<p>Repeat these steps for each repository if the application is made up of multiple links on the City of Lightspeed application page.</p>\n<h2><strong style=\"color: blue;\">III. Create Demo Data (optional)</strong></h2>\n<ol>\n<li>Navigate to&nbsp;<strong>System Definition&gt;&nbsp;Scheduled Jobs</strong>.</li>\n<li>Locate and open the&nbsp;record&nbsp;with the name \"RUN ME FIRST - xxxx\", where 'xxxx' is the name of the application (e.g. RUN ME FIRST - City Guide Demo Events')</li>\n<li>Click the&nbsp;button \"<strong>Execute Now</strong>\"</li>\n<li>The scheduled job runs in the background and may take a minute or two to run.</li>\n</ol>",
+		"displayValue": "<p>Any application that offers one or more links to the application source can be installed on your ServiceNow instance. It only takes a few&nbsp;simple steps for each applcation - create a copy of the app, install the app from GitHub, create&nbsp;demo data (optional).</p>\n<h2 style=\"font-weight: bold; color: #000;\">Prerequisites</h2>\n<ul>\n<li><strong>ServiceNow instance</strong> - If you don't already have one, you can get a free developer instance at the <a href=\"https://developer.servicenow.com/\">ServiceNow Developer Portal</a>.</li>\n<li><strong>GitHub account</strong> - Sign in or sign up for a free account at <a href=\"https://github.com\">GitHub</a>.</li>\n</ul>\n<h2 style=\"font-weight: bold; color: #000;\">Instructions</h2>\n<h2><strong style=\"color: blue;\">I. Create a copy of the application in GitHub.</strong></h2>\n<ol>\n<li>Login to GitHub.</li>\n<li>From the City of Lightspeed application page, click the link provided for the application's source code. This brings you to the GitHub page for that application.</li>\n<li>Click the Fork button in the upper right.</li>\n<ul>\n<li><img style=\"max-width: 100%; max-height: 480px;\" src=\"571d8878db27b60087c1fd441d961933.iix\" alt=\"\" /></li>\n</ul>\n<li>GitHub creates a copy of the application under your account.</li>\n<li>When complete, click the \"Clone or Download\" button, then click the clipboard icon to copy the URL to the clipboard.</li>\n<ul>\n<li><img style=\"max-width: 100%; max-height: 480px;\" src=\"95dd40f8db27b60087c1fd441d96198e.iix\" alt=\"\" /></li>\n</ul>\n</ol>\n<h2><strong style=\"color: blue;\">II. Install on ServiceNow</strong></h2>\n<ol>\n<li>Login to your ServiceNow instance with admin credentials.</li>\n<li>Navigate to <strong>System Applications&gt; Studio</strong>.</li>\n<li>Choose&nbsp;<strong>Import from Source Control</strong>.</li>\n<ul>\n<li><img style=\"max-width: 100%; max-height: 480px;\" src=\"08ae40f8db27b60087c1fd441d961996.iix\" alt=\"\" /></li>\n</ul>\n<li>Paste the GitHub URL you copied earlier in the URL field.</li>\n<li>Provide your GitHub login and password in the corresponding fields.</li>\n<li>Click&nbsp;<strong>Import</strong>.</li>\n<ul>\n<li><img style=\"max-width: 100%; max-height: 480px;\" src=\"101f40f8db27b60087c1fd441d9619f6.iix\" alt=\"\" /></li>\n</ul>\n<li>Start exploring in Studio!</li>\n</ol>\n<p>&nbsp;</p>\n<p>Repeat these steps for each repository if the application is made up of multiple links on the City of Lightspeed application page.</p>\n<h2><strong style=\"color: blue;\">III. Create Demo Data (optional)</strong></h2>\n<ol>\n<li>Navigate to&nbsp;<strong>System Definition&gt;&nbsp;Scheduled Jobs</strong>.</li>\n<li>Locate and open the&nbsp;record&nbsp;with the name \"RUN ME FIRST - xxxx\", where 'xxxx' is the name of the application (e.g. RUN ME FIRST - City Guide Demo Events')</li>\n<li>Click the&nbsp;button \"<strong>Execute Now</strong>\"</li>\n<li>The scheduled job runs in the background and may take a minute or two to run.</li>\n</ol>"
+	}
+}]]></widget_parameters>
+    </sp_instance>
+    <sys_translated_text action="delete_multiple" query="documentkey=24088cf4db27b60087c1fd441d96198b"/>
+</record_update>

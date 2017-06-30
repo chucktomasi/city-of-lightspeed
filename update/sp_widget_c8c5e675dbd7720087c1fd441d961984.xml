@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <client_script><![CDATA[function($timeout) {
+    /* widget controller */
+    var d = this;
+    let c = document.getElementById('canvas');
+    let ctx = c.getContext('2d');
+
+    function updateLines() {
+        //debugger;
+        let b = document.getElementById('b').getBoundingClientRect();
+        let a = document.getElementById('a').getBoundingClientRect();
+
+        let width = b.left - a.right;
+        let tHeight = a.top - b.top;
+        let bHeight = (b.bottom - a.bottom);
+
+        c.style.left = a.right + "px";
+        c.setAttribute("width", width + "px");
+        c.setAttribute("height", b.height + "px");
+        c.style.top = b.top - 60 + "px";
+
+        ctx.clearRect(0, 0, width, b.height)
+        ctx.beginPath();
+        ctx.moveTo(0, tHeight);
+        ctx.lineTo(width, 20);
+        ctx.lineTo(width, b.height - 20);
+        ctx.lineTo(0, b.height - bHeight);
+        ctx.fillStyle = "rgba(216, 216, 216, .4)";
+        ctx.fill();
+    }
+
+    $(window).resize(function() {
+        updateLines();
+    });
+
+    $timeout(function() {
+        updateLines();
+    }, 1000);
+
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.app-detail-banner {
+    background: #4F647A;
+    .trapezoid-phone {
+        height: 90%;
+        @media screen and (max-width: 990px) {
+            height: 75%;
+        }
+        @media screen and (max-width: 744px) {
+            width: 50%;
+        }
+    }
+    .phone-div {
+        display: inline-block;
+        border: 1px solid #b9b7b7;
+        padding: 25px;
+        border-radius: 29px;
+        width: 90%;
+        overflow: hidden;
+        @media screen and (max-width: 990px) {
+            width: 70%;
+        }
+        @media screen and (max-width: 414px) {
+            width: 80%;
+            padding: 15px;
+            border-radius: 6px;
+            margin-left: 20px;
+        }
+        img {
+            width: 100%;
+        }
+    }
+    .pic-and-phone {
+        padding: 0 5%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        @media screen and (max-width: 990px) {
+            justify-content: space-between;
+            padding: 10px;
+        }
+        .pic-text {
+            width: 30%;
+            color: #fff;
+            text-align: center;
+            float: left;
+            padding: 30px;
+            @media screen and (max-width: 990px) {
+                width: 40%;
+            }
+            @media screen and (max-width: 414px) {
+                width: 70%;
+                padding: 15px;
+            }
+            p {
+                font-size: 18px;
+                font-weight: bold;
+                @media screen and (max-width: 414px) {
+                    font-size: 15px;
+                }
+            }
+            h3 {
+                font-size: 32px;
+                font-weight: bold;
+                text-transform: uppercase;
+                @media screen and (max-width: 414px) {
+                    font-size: 18px;
+                }
+            }
+            .exp {
+                width: 170px;
+                height: 170px;
+                border-radius: 100%;
+                line-height: 80px;
+                text-align: center;
+                vertical-align: middle;
+                display: inline-block;
+                background-image: url(young_ppl.jpg);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-position: center;
+                background-size: cover;
+                position: relative;
+            }
+            .circle-cropper {
+                position: relative;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: 50%;
+                border-radius: 50%;
+                width: 100%;
+                padding-top: 100%;
+                .imaginary-box {
+                    width: 50px;
+                    height: 50px;
+                    background: transparent;
+                    position: absolute;
+                    right: 35px;
+                    top: 50%;
+                    @media screen and (max-width: 414px) {
+                        font-size: 18px;
+                        width: 40px;
+                        height: 40px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// .testing {
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-around;
+//     #a {
+//         width: 60px;
+//         height: 100px;
+//         background-color: red;
+//     }
+//     #b {
+//         width: 120px;
+//         height: 200px;
+//         background-color: green;
+//         //position: absolute;
+//         //top: 32px;
+//         //left: 300px;
+//     }
+//     #canvas {
+//         position: absolute;
+//     }
+// }
+.exp {
+    margin: 5px;
+    width: 100px;
+    height: 100px;
+    background-color: #ded3c0;
+    border-radius: 100%;
+    line-height: 80px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.exp .image {
+    width: 50px;
+    height: 50px;
+}
+
+.big-image {
+    border: 1px solid #000;
+    padding: 20px;
+    border-radius: 19px;
+}
+
+.flex {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#canvas {
+    position: absolute;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>cols-app-detail-banner</id>
+        <internal>false</internal>
+        <link/>
+        <name>COLS App Detail Banner</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+    /* populate the 'data' object */
+    /* e.g., data.table = $sp.getValue('table'); */
+    var sys_id = $sp.getParameter('sys_id');
+
+    var gr = new GlideRecord('x_snc_city_app');
+    gr.addQuery('sys_id', sys_id);
+    gr.query();
+    if (gr.next()) {
+        var obj = {};
+        $sp.getRecordElements(obj, gr, 'name,sys_id,description,screenshot,site,consumerization_text,automation_text,integration_text,visibility_text');
+        data.apprecord = obj;
+    }
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>sush.chandrashekar</sys_created_by>
+        <sys_created_on>2017-06-12 18:00:26</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>c8c5e675dbd7720087c1fd441d961984</sys_id>
+        <sys_mod_count>202</sys_mod_count>
+        <sys_name>COLS App Detail Banner</sys_name>
+        <sys_package display_value="City" source="x_snc_city">75d4ebaedb033e00c3beffa31d9619d8</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="City">75d4ebaedb033e00c3beffa31d9619d8</sys_scope>
+        <sys_update_name>sp_widget_c8c5e675dbd7720087c1fd441d961984</sys_update_name>
+        <sys_updated_by>sush.chandrashekar</sys_updated_by>
+        <sys_updated_on>2017-06-21 01:17:33</sys_updated_on>
+        <template><![CDATA[<div class="app-detail-banner">
+    <!-- your widget template -->
+
+
+    <div class="pic-and-phone">
+        <div class="pic-text">
+            <div class="circle-cropper" style="background-image:url(young_ppl.jpg);">
+                <div id="a" class="imaginary-box"></div>
+            </div>
+            <h3>{{c.data.apprecord.name.display_value}}</h3>
+            <p>{{c.data.apprecord.description.display_value}}</p>
+
+        </div>
+        <div class="trapezoid-phone">
+            <!--<div id="trapezoid"></div>-->
+            <div id="b" class="phone-div">
+                <img ng-src="{{c.data.apprecord.screenshot.display_value}}">
+            </div>
+        </div>
+    </div>
+
+
+    <!--<div class="flex">
+        <div class="exp" tabindex="0">
+            <img id="a" class="image" src="http://via.placeholder.com/50x50"> </div>
+
+        <div id="b" class="big-image">
+            <img class="image" src="http://via.placeholder.com/350x550">
+        </div>
+    </div>-->
+
+    <canvas id="canvas"></canvas>
+
+</div>]]></template>
+    </sp_widget>
+</record_update>

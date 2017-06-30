@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_theme">
+    <sp_theme action="INSERT_OR_UPDATE">
+        <css_variables>$welcome-to-city: #0870b0;
+$city-beige:#eae6df;
+$learn-more-box: rgba(255, 255, 255, 0.8);
+$learn-more-foot-bg:#6c6a66;
+$consumerization-bg:#df4558;
+$consumerization-learn-bg:#bd3a4a;
+$automation-bg:#4990e2;
+$automation-learn-bg:#3e7ac0;
+$integration-bg:#45bf71;
+$integration-learn-bg:#319e58;
+$visibility-bg:#d077c2;
+$visibility-learn-bg:#7d2770;
+$baloon-color:#E1A037;
+div[ng-repeat="column in columns"] {
+    padding: 0px;
+}
+
+section.page {
+    padding-top: 0px !important;
+}</css_variables>
+        <footer display_value="COLS Footer">3e19dddcdbdfbe00c3beffa31d96194c</footer>
+        <footer_fixed>true</footer_fixed>
+        <header display_value="COLS Header">d92d3070db27b600c3beffa31d961995</header>
+        <name>City Of LightSpeed</name>
+        <navbar_fixed>true</navbar_fixed>
+        <sys_class_name>sp_theme</sys_class_name>
+        <sys_created_by>sush.chandrashekar</sys_created_by>
+        <sys_created_on>2017-06-07 20:24:15</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>6b76159cdbdfbe00c3beffa31d96199f</sys_id>
+        <sys_mod_count>18</sys_mod_count>
+        <sys_name>City Of LightSpeed</sys_name>
+        <sys_package display_value="City" source="x_snc_city">75d4ebaedb033e00c3beffa31d9619d8</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="City">75d4ebaedb033e00c3beffa31d9619d8</sys_scope>
+        <sys_update_name>sp_theme_6b76159cdbdfbe00c3beffa31d96199f</sys_update_name>
+        <sys_updated_by>sush.chandrashekar</sys_updated_by>
+        <sys_updated_on>2017-06-21 20:47:22</sys_updated_on>
+    </sp_theme>
+</record_update>

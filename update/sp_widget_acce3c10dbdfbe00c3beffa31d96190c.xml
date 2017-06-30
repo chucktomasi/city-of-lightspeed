@@ -1,0 +1,1349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <client_script><![CDATA[function threeDBnnerCtrl($timeout, $location, $rootScope) {
+    /* widget controller */
+    var c = this;
+    c.layerSelected = "";
+    c.searchObject = $location.search();
+
+    // c.showDetailFunction = function(id) {
+    //     //debugger;
+    //     //window.history.pushState('detail', 'detail', '/city?sys_id=112346');
+    //     // $timeout(function() {
+    //     //     $rootScope.$broadcast('showAppDetail', '123456789');
+    //     //     console.log('update with timeout fired')
+    //     // }, 1000);
+
+
+    // };
+    if (c.searchObject.sys_id) {
+        console.log(c.searchObject.sys_id);
+        c.showDetailFunction(c.searchObject.sys_id);
+    }
+    c.$onInit = function() {
+        c.layer = {};
+        c.layer.head = "Welcome to the City of Lightspeed";
+        c.layer.description = "Automate processes and orchestrate action across the enterprise, reuse components and integrations, and delegate application development with easy‑to‑use resources and drag‑and‑drop tools.";
+        c.layerBg = "#0870b0";
+        c.layer.learn_more_text = "Get in touch";
+        c.layerLearnMoreBg = "#055283";
+        c.initialimg = "cols.png";
+    };
+    c.changeImg = function(layer) {
+        //console.log(what);
+        c.layerSelected = layer;
+        if (layer == 'red') {
+            c.initialimg = "cols-red.png"
+        } else {
+            c.initialimg = "cols.png";
+        }
+    };
+    c.hideDetail = function() {
+        $location.url("/city");
+        $rootScope.showDetail = false;
+    };
+
+    c.layerClicked = function(layer) {
+            // debugger;
+            if (layer == 'consumerization') {
+                c.translateConsumer = "translate-consumerization";
+                c.translateIntegrate = "";
+                c.translateVisibility = "";
+                c.translateAutomate = "";
+                c.layer = c.data.homePageTexts.consumerization;
+                c.layerBg = "#df4558";
+                c.layerLearnMoreBg = "#bd3a4a";
+
+            }
+            if (layer == 'automation') {
+                c.translateAutomate = "translate-automation";
+                c.translateIntegrate = "";
+                c.translateVisibility = "";
+                c.translateConsumer = "";
+                c.layer = c.data.homePageTexts.automation;
+                c.layerBg = "#4990e2";
+                c.layerLearnMoreBg = "#3e7ac0";
+
+            }
+            if (layer == 'integration') {
+                c.translateIntegrate = "translate-integration";
+                c.translateAutomate = "";
+                c.translateVisibility = "";
+                c.translateConsumer = "";
+                c.layer = c.data.homePageTexts.integration;
+                c.layerBg = "#45bf71";
+                c.layerLearnMoreBg = "#319e58";
+            }
+            if (layer == 'visibility') {
+                c.translateVisibility = "translate-visibility";
+                c.translateAutomate = "";
+                c.translateIntegrate = "";
+                c.translateConsumer = "";
+                c.layer = c.data.homePageTexts.visibility;
+                c.layerBg = "#d077c2";
+                c.layerLearnMoreBg = "#7d2770";
+            }
+        }
+        // var vis = false;
+        // var first_layer = document.getElementById("first-layer");
+        // first_layer.onclick = toggleVisibility;
+
+    function toggleVisibility() {
+        $timeout(function() {
+            c.translateAutomate = "";
+            c.translateIntegrate = "";
+            c.translateVisibility = "";
+            c.translateConsumer = "";
+        });
+
+        var container = document.getElementById("c");
+        container.className = vis ?
+            "container" : "container vis";
+        vis = !vis;
+    }
+
+
+
+    /********* cloud factory **************/
+    var TimeLine, Layer, World,
+        /* Constats */
+        $doc, nameSpace,
+        /* helpers */
+        nameSpaced;
+
+    $doc = $(document);
+
+    nameSpace = "TimeLine";
+
+    nameSpaced = function(eventNames, ns) {
+        var i, events, nameSpaced;
+        events = eventNames.split(" ");
+
+        for (i = 0; i < events.length; i++) {
+            events[i] = events[i] + "." + (ns ||  nameSpace);
+        }
+
+        return events.join(" ");
+    };
+
+    TimeLine = function($timeLine, groupsSelector, layersSelector, $world, $viewport) {
+        this.$timeLine = $timeLine;
+        //this.groupsSelector = groupsSelector;
+        //this.layersSelector = layersSelector;
+        this.$world = $world;
+        this.$viewport = $viewport;
+    };
+
+    /* TimeLine Methods */
+    TimeLine.prototype.init = function() {
+        var self = this;
+        self.World = new World(self.$world, self.$viewport);
+        self._parseTimeline();
+    };
+
+    TimeLine.prototype._parseTimeline = function() {
+        var self = this;
+    };
+
+    TimeLine.prototype.addLayer = function() {
+
+    };
+
+    TimeLine.prototype.addGroup = function() {
+
+    };
+
+    Layer = function($layer) {
+
+    };
+
+    World = function($world, $viewport) {
+
+        var self = this;
+
+        this.$world = $world;
+        this.$viewport = $viewport;
+
+        this.viewPortWidth = 0;
+        this.viewPortHeight = 0;
+
+        this.worldXAngle = 0;
+        this.worldYAngle = 0;
+
+        this.d = 0; //actual depth of the world
+        this.depth = 300; //default death between layers
+
+        this.initInteraction();
+        this.clouds = [];
+        this.layers = [];
+        this.stepSpeed = .4;
+
+        for (var j = 0; j < 200; j++) {
+            var $layer = this.addLayer(j, "");
+            for (var i = 0; i < 2; i++) {
+                $layer.append(this.addCloud(2, 5));
+            }
+        }
+
+        function animate() {
+            self.d = self.d - self.stepSpeed;
+            self.updateView();
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+    };
+
+    /* World Methods */
+    World.prototype.initInteraction = function() {
+        var self = this;
+
+        self.$viewport.on(nameSpaced("mousemove"), function(e) {
+            self.worldYAngle = -(0.5 - (e.clientX / window.innerWidth)) * 2;
+            self.worldXAngle = (0.5 - (e.clientY / window.innerHeight)) * 2;
+            //self.updateView();
+        });
+
+        // self.$viewport.on(nameSpaced("mousewheel DOMMouseScroll"), function(e) {
+        //     e = e ? e : window.event;
+        //     self.d = self.d - (e.originalEvent.detail ? e.originalEvent.detail * -5 : e.originalEvent.wheelDelta / 8);
+        //     //self.updateView();
+        // });
+
+        // self.$viewport.on(nameSpaced("click"), function() {
+        //     self.stepSpeed = 0;
+
+        //     console.log()
+        // });
+    };
+
+    World.prototype.updateView = function() {
+        var self = this;
+        //calculate the visible layer
+        //console.log( (-self.d / self.depth) );
+
+        self.$world.css('transform', 'translateZ( ' + self.d + 'px ) rotateX( ' + self.worldXAngle + 'deg) rotateY( ' + self.worldYAngle + 'deg)');
+
+        /*for(var i = 0; i < self.clouds.length; i++){
+          self.clouds[i].css('transform', 'rotateX( ' + -1 * self.worldXAngle + 'deg) rotateY( ' + -1 * self.worldYAngle + 'deg)');
+        }*/
+    };
+
+    World.prototype.addLayer = function(layerdepth, $content) {
+        var t, $layer, layerHTML = "<div class='worldLayer'></div>";
+
+        $layer = $(layerHTML);
+        t = 'translateZ( ' + (layerdepth * this.depth) + 'px )';
+        $layer.css("transform", t);
+        if ($content) {
+            $layer.append($content);
+        }
+        if (layerdepth > 20) {
+            $layer.css("display", "none");
+        }
+        this.layers.push($layer);
+        this.$world.append($layer);
+        return $layer;
+    };
+
+    World.prototype.addCloud = function(minParticles, maxParticles, position) {
+        var x, y, z, a, s, i, t, layers, $cloud, $cloudPart, cloudHtml = "<div class='cloud'></div>",
+            cloudPartHtml = "<div class='cloudPart'></div>";
+
+        $cloud = $(cloudHtml);
+        layers = [];
+
+        for (i = 0; i < (minParticles || 2) + Math.round(Math.random() * (maxParticles || 10)); i++) {
+            $cloudPart = $(cloudPartHtml);
+
+            x = 256 - (Math.random() * 256);
+            y = 256 - (Math.random() * 256);
+            z = 100 - (Math.random() * 200);
+            a = Math.random() * 360;
+            s = 0.25 + Math.random();
+
+            t = 'translateX( ' + x + 'px ) translateY( ' + y + 'px ) translateZ( ' + z + 'px ) rotateZ( ' + a + 'deg )  scale( ' + s + ' )';
+
+            $cloudPart.data({
+                x: x,
+                y: y,
+                z: z,
+                a: a,
+                s: s
+            }).css("transform", t);
+
+            $cloud.append($cloudPart);
+        }
+        $cloud.css({ "top": (Math.random() * 100) + "%", "left": (Math.random() * 100) + "%", "transform": "translateZ(" + (Math.random() < 0.5 ? -1 : 1) * Math.random() * 100 + "px)" });
+        //this.$world.append( $cloud );
+
+        return $cloud;
+    };
+
+    /*** init ***/
+    var TL = new TimeLine($('#timeline'), "> section", "*[data-layer]", $(".world"), $("#viewport"));
+    TL.init();
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.threeD-city-banner {
+    padding: 0px;
+    overflow: hidden;
+    .flex-it {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .banner-encloser {
+        height: 100%;
+        .app-detail {}
+        .moving-banner {
+            height: 67%;
+            position: relative;
+        }
+        .moving-banner-with-details {}
+    }
+    .template-included {
+        height: 100%;
+    }
+    .lighterbg {
+        background-image: linear-gradient(#0B0F15, #2F70C6);
+    }
+    .darkerbg {
+        background-image: linear-gradient(#101522, #1B2540);
+    }
+    .banner {
+        height: 205%;
+        position: absolute;
+        transition: top 2s;
+        top: -105%;
+        z-index: 1000;
+        padding-left: 0px;
+        padding-right: 0px;
+        &amp;.move-down {
+            top: 0%;
+            .threeD-city {
+                img {
+                    animation-name: citymoveup;
+                    animation-timing-function: ease;
+                    animation-duration: 2s;
+                    transform: translate3d(0px, -20%, 0px);
+                }
+            }
+        }
+        @media screen and (max-width: 414px) {
+            //height: 533px;
+        }
+        .clickable {
+            width: 50px;
+            height: 50px;
+            background: red;
+            // position: absolute;
+            // top: 56%;
+            // left: 0;
+            // right: 0;
+            // margin-left: auto;
+            // margin-right: auto;
+        }
+        .threeD-city {
+            // margin-left: auto;
+            // margin-right: auto;
+            // left: 0;
+            // right: 0;
+            // position: absolute;
+            // top: 30%;
+            height: 50%;
+            @media screen and (max-width: 414px) {
+                top: 10% !important;
+            }
+            img {
+                height: 100%;
+            }
+            .layer {
+                position: absolute;
+                background: transparent;
+                width: 144px;
+                height: 40px;
+                left: auto;
+                right: auto;
+                margin-left: auto;
+                margin-right: auto;
+                left: 0;
+                right: 0;
+            }
+            .each-app {
+                position: absolute;
+                top: 39px;
+                left: 39%;
+                @media screen and (max-width: 414px) {
+                    top: -18px;
+                    left: 4%;
+                }
+                .baloon {
+                    .exp {
+                        width: 50px;
+                        height: 50px;
+                        background-color: $baloon-color;
+                        border-radius: 100%;
+                        line-height: 80px;
+                        text-align: center;
+                        vertical-align: middle;
+                        display: inline-block;
+                        img {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            height: inherit;
+                        }
+                        a {
+                            margin-bottom: 0px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            height: inherit;
+                            color: #fff;
+                        }
+                    }
+                    .line {
+                        width: 1px;
+                        background: $baloon-color;
+                        height: 115px;
+                        position: absolute;
+                        left: 0px;
+                        right: 0px;
+                        margin-left: auto;
+                        margin-right: auto;
+                        &amp;:after {
+                            position: absolute;
+                            bottom: 0px;
+                            left: -5px;
+                            height: 10px;
+                            width: 10px;
+                            background: $baloon-color;
+                            content: "";
+                            border-radius: 5px;
+                        }
+                    }
+                }
+            }
+        }
+        .v58d22d87db2fb20087c1fd441d961904 {
+            height: 50%;
+            background-image: linear-gradient(#1B2540, #0D0F16);
+        }
+    }
+    // .consumerization-bg {
+    //     background:$consumerization-bg;
+    // }
+}
+
+@keyframes citymoveup {
+    0% {
+        transform: translate3d(0px, 0px, 0px);
+    }
+    25% {
+        transform: translate3d(0px, -15%, 0px);
+    }
+    50% {
+        transform: translate3d(0px, -20%, 0px);
+    }
+    75% {
+        transform: translate3d(0px, -20%, 0px);
+    }
+    85% {
+        transform: translate3d(0px, -20%, 0px);
+    }
+    95% {
+        transform: translate3d(0px, -20%, 0px);
+    }
+    100% {
+        transform: translate3d(0px, -20%, 0px);
+    }
+}
+
+// @media screen and (max-width:414px) {
+//     .threeD-city {
+//         top: 10%
+//     }
+// }
+// .text-portion {
+//     height: 40%;
+//     clear: both;
+// }
+.each-layer-with-details {
+    // position: absolute;
+    // bottom: 0px;
+}
+
+.each-layer {
+    background-color: $welcome-to-city;
+    padding: 40px 160px;
+    clear: both;
+    z-index: 1300;
+    height: 33%;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    @media screen and (max-width: 414px) {
+        padding: 10px;
+    }
+    .move-city-up {
+        position: absolute;
+        top: -70px;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        .exp {
+            width: 50px;
+            height: 50px;
+            background-color: teal;
+            border-radius: 100%;
+            line-height: 80px;
+            text-align: center;
+            vertical-align: middle;
+            display: inline-block;
+            .fa {
+                color: #fff;
+            }
+        }
+    }
+    h3 {
+        font-size: 42px;
+        color: #fff;
+        margin-top: 0px;
+        font-weight: bold;
+        @media screen and (max-width: 414px) {
+            font-size: 32px;
+        }
+    }
+    p {
+        font-size: 28px;
+        color: #fff;
+        font-weight: 300;
+        @media screen and (max-width: 414px) {
+            font-size: 18px;
+        }
+    }
+}
+
+.get-in-touch {
+    background: #055283;
+    padding: 10px;
+    //height: 16%;
+    p {
+        @media screen and (max-width: 414px) {
+            font-size: 24px;
+        }
+        font-size: 36px;
+        font-weight: 300;
+        text-transform: uppercase;
+        margin-bottom: 0px;
+        color: #fff;
+    }
+}
+
+
+/***************3D slabs************************/
+
+$dim: 300px;
+$dim-mobile:200px;
+$depth: 30px;
+$gap: 60px;
+$translate-ontap: 95px;
+$translate-ontap-mobile: 55px;
+.container {
+    position: absolute;
+    top: 180px;
+    left: 100px;
+    transform-style: preserve-3d;
+    transform: rotateX(71deg) rotateZ(45deg);
+}
+
+.grey-box {
+    cursor: pointer;
+    position: absolute;
+    width: $dim;
+    height: $dim;
+    transform-style: preserve-3d;
+    transform: translateZ($gap*1.5);
+    @media screen and (max-width: 414px) {
+        width: $dim-mobile;
+        height: $dim-mobile;
+    }
+    .side {
+        &amp;.front {
+            background-color: grey;
+            span {
+                color: #fff;
+                transform: rotatez(-45deg);
+                top: 29%;
+                font-size: 26px;
+                right: 12%;
+                position: absolute;
+            }
+        }
+        &amp;.back {
+            background-color: grey;
+        }
+    }
+    .side-vert {
+        //border: 2px solid black;
+        position: absolute;
+        width: $depth/2;
+        height: $dim;
+        @media screen and (max-width: 414px) {
+            height: $dim-mobile;
+        }
+        &amp;.right {
+            background: #909091;
+        }
+        &amp;.left {
+            background-color: grey;
+        }
+    }
+    .side-hor {
+        //border: 2px solid black;
+        position: absolute;
+        width: $dim;
+        height: $depth/2;
+        @media screen and (max-width: 414px) {
+            width: $dim-mobile;
+        }
+        &amp;.bottom {
+            background: #414141;
+        }
+        &amp;.top {
+            background-color: grey;
+        }
+    }
+    .back {
+        transform: translateZ(-$depth/4);
+    }
+    .left {
+        transform: translateX(-$depth/4) rotateY(90deg);
+    }
+    .right {
+        transform: translateX($dim - $depth/4) rotateY(90deg);
+        @media screen and (max-width: 414px) {
+            transform: translateX($dim-mobile - $depth/4) rotateY(90deg);
+        }
+    }
+    .top {
+        transform: translateY(-$depth/4) rotateX(90deg);
+    }
+    .bottom {
+        transform: translateY($dim - $depth/4) rotateX(90deg);
+        @media screen and (max-width: 414px) {
+            transform: translateY($dim-mobile - $depth/4) rotateX(90deg);
+        }
+    }
+    .front {
+        transform: translateZ($depth/4);
+    }
+}
+
+.box {
+    cursor: pointer;
+    position: absolute;
+    width: $dim;
+    height: $dim;
+    transform-style: preserve-3d;
+    @media screen and (max-width: 414px) {
+        width: $dim-mobile;
+        height: $dim-mobile;
+    }
+}
+
+.side {
+    //border: 2px solid black;
+    position: absolute;
+    width: $dim;
+    height: $dim;
+    @media screen and (max-width: 414px) {
+        width: $dim-mobile;
+        height: $dim-mobile;
+    }
+}
+
+.side-vert {
+    //border: 2px solid black;
+    position: absolute;
+    width: $depth;
+    height: $dim;
+    @media screen and (max-width: 414px) {
+        height: $dim-mobile;
+    }
+}
+
+.side-hor {
+    //border: 2px solid black;
+    position: absolute;
+    width: $dim;
+    height: $depth;
+    @media screen and (max-width: 414px) {
+        width: $dim-mobile;
+    }
+}
+
+.back {
+    transform: translateZ(-$depth/2);
+}
+
+.left {
+    transform: translateX(-$depth/2) rotateY(90deg);
+}
+
+.right {
+    transform: translateX($dim - $depth/2) rotateY(90deg);
+    @media screen and (max-width: 414px) {
+        transform: translateX($dim-mobile - $depth/2) rotateY(90deg);
+    }
+}
+
+.top {
+    transform: translateY(-$depth/2) rotateX(90deg);
+}
+
+.bottom {
+    transform: translateY($dim - $depth/2) rotateX(90deg);
+    @media screen and (max-width: 414px) {
+        transform: translateY($dim-mobile - $depth/2) rotateX(90deg);
+    }
+}
+
+.front {
+    transform: translateZ($depth/2);
+}
+
+.consumerization {
+    visibility: hidden;
+    transform: translateZ($gap);
+}
+
+.automation {
+    visibility: hidden;
+    transform: translateZ(0);
+}
+
+.integration {
+    visibility: hidden;
+    transform: translateZ(-$gap);
+}
+
+.visibility {
+    visibility: hidden;
+    transform: translateZ(-$gap*2);
+}
+
+.consumerization {
+    .side-vert {
+        &amp;.right {
+            background: #FF4140;
+            span {
+                position: absolute;
+                transform: rotatez(-90deg);
+                bottom: 85px;
+                font-size: 20px;
+                right: -68px;
+                text-transform: uppercase;
+                color: #fff;
+                line-height: 1;
+            }
+        }
+        &amp;.left {
+            background-color: $consumerization-bg;
+        }
+    }
+    .side {
+        &amp;.front {
+            background-color: $consumerization-bg;
+        }
+        &amp;.back {
+            background-color: $consumerization-bg;
+        }
+    }
+    .side-hor {
+        &amp;.bottom {
+            background: #83364D;
+        }
+        &amp;.top {
+            background-color: $consumerization-bg;
+        }
+    }
+}
+
+.automation {
+    //background-color: $automation-bg;
+    .side-vert {
+        &amp;.right {
+            background: #3D88CF;
+            span {
+                position: absolute;
+                transform: rotatez(-90deg);
+                bottom: 64px;
+                font-size: 20px;
+                right: -44px;
+                text-transform: uppercase;
+                color: #fff;
+                line-height: 1;
+            }
+        }
+        &amp;.left {
+            background-color: $automation-bg;
+        }
+    }
+    .side {
+        &amp;.front {
+            background-color: $automation-bg;
+        }
+        &amp;.back {
+            background-color: $automation-bg;
+        }
+    }
+    .side-hor {
+        &amp;.bottom {
+            background: #2060B9;
+        }
+        &amp;.top {
+            background-color: $automation-bg;
+        }
+    }
+}
+
+.integration {
+    //background-color: $integration-bg;
+    .side-vert {
+        &amp;.right {
+            background: #3A8C31;
+            span {
+                position: absolute;
+                transform: rotatez(-90deg);
+                bottom: 64px;
+                font-size: 20px;
+                right: -43px;
+                text-transform: uppercase;
+                color: #fff;
+                line-height: 1;
+            }
+        }
+        &amp;.left {
+            background-color: $integration-bg;
+        }
+    }
+    .side {
+        &amp;.front {
+            background-color: $integration-bg;
+        }
+        &amp;.back {
+            background-color: $integration-bg;
+        }
+    }
+    .side-hor {
+        &amp;.bottom {
+            background: #1F6058;
+        }
+        &amp;.top {
+            background-color: $integration-bg;
+        }
+    }
+}
+
+.translate-consumerization {
+    animation-name: moveOutConsumer;
+    animation-timing-function: ease-out;
+    animation-duration: 1s;
+    transform: translate3d($translate-ontap, 0, 65px);
+    @media screen and (max-width: 414px) {
+        animation-name: moveOutConsumerMobile;
+        transform: translate3d($translate-ontap-mobile, 0, 65px);
+    }
+}
+
+.translate-automation {
+    animation-name: moveOutAutomate;
+    animation-timing-function: ease-out;
+    animation-duration: 1s;
+    transform: translate3d($translate-ontap, 0, 0);
+    @media screen and (max-width: 414px) {
+        animation-name: moveOutAutomateMobile;
+        transform: translate3d($translate-ontap-mobile, 0, 0);
+    }
+}
+
+.translate-integration {
+    animation-name: moveOutIntegrate;
+    animation-iteration-count: 1;
+    animation-duration: 1s;
+    transform: translate3d($translate-ontap, 0, -65px);
+    @media screen and (max-width: 414px) {
+        animation-name: moveOutIntegrateMobile;
+        transform: translate3d($translate-ontap-mobile, 0, -65px);
+    }
+}
+
+.translate-visibility {
+    animation-name: moveOutVisibility;
+    animation-iteration-count: 1;
+    animation-duration: 1s;
+    transform: translate3d($translate-ontap, 0, -130px);
+    @media screen and (max-width: 414px) {
+        animation-name: moveOutVisibilityMobile;
+        transform: translate3d($translate-ontap-mobile, 0, -130px);
+    }
+}
+
+@keyframes moveOutConsumer {
+    0% {
+        transform: translate3d(0, 0, 65px);
+    }
+    100% {
+        transform: translate3d($translate-ontap, 0, 65px);
+    }
+}
+
+@keyframes moveOutConsumerMobile {
+    0% {
+        transform: translate3d(0, 0, 65px);
+    }
+    100% {
+        transform: translate3d($translate-ontap-mobile, 0, 65px);
+    }
+}
+
+@keyframes moveOutAutomate {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d($translate-ontap, 0, 0);
+    }
+}
+
+@keyframes moveOutAutomateMobile {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d($translate-ontap-mobile, 0, 0);
+    }
+}
+
+@keyframes moveOutIntegrate {
+    0% {
+        transform: translate3d(0, 0, -65px);
+    }
+    100% {
+        transform: translate3d($translate-ontap, 0, -65px);
+    }
+}
+
+@keyframes moveOutIntegrateMobile {
+    0% {
+        transform: translate3d(0, 0, -65px);
+    }
+    100% {
+        transform: translate3d($translate-ontap-mobile, 0, -65px);
+    }
+}
+
+@keyframes moveOutVisibility {
+    0% {
+        transform: translate3d(0, 0, -130px);
+    }
+    100% {
+        transform: translate3d($translate-ontap, 0, -130px);
+    }
+}
+
+@keyframes moveOutVisibilityMobile {
+    0% {
+        transform: translate3d(0, 0, -130px);
+    }
+    100% {
+        transform: translate3d($translate-ontap-mobile, 0, -130px);
+    }
+}
+
+.visibility {
+    //background-color: $integration-bg;
+    .side-vert {
+        &amp;.right {
+            background: #7A307C;
+            span {
+                position: absolute;
+                transform: rotatez(-90deg);
+                bottom: 50px;
+                font-size: 20px;
+                right: -28px;
+                text-transform: uppercase;
+                color: #fff;
+                line-height: 1;
+            }
+        }
+        &amp;.left {
+            background-color: $visibility-bg;
+        }
+    }
+    .side {
+        &amp;.front {
+            background-color: $visibility-bg;
+        }
+        &amp;.back {
+            background-color: $visibility-bg;
+        }
+    }
+    .side-hor {
+        &amp;.bottom {
+            background: #30358F;
+        }
+        &amp;.top {
+            background-color: $visibility-bg;
+        }
+    }
+}
+
+.vis&gt;* {
+    visibility: visible;
+}
+
+
+/**********************world*******************/
+
+.worldLayer:nth-child(5n) {
+    //background: rgba(red,.5);
+}
+
+.worldLayer:nth-child(4n) {
+    .content {
+        right: 0;
+        left: auto;
+    }
+}
+
+.worldLayer:nth-child(3n) {
+    .content {
+        top: auto;
+        bottom: 0;
+    }
+}
+
+.content {
+    //display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    width: 258px;
+    font-size: 20px;
+    color: #000;
+    //text-shadow: 0 0 10px rgba(#000,.25);
+    text-transform: uppercase;
+    font-weight: 700;
+    transform: translate3d(0, 0, 25px);
+    strong {
+        font-size: 80px;
+        font-weight: 300;
+        margin-left: -0.075em;
+    }
+}
+
+@keyframes cloudRotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+#wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 700px;
+    height: 700px;
+    margin-left: -350px;
+    margin-top: -350px;
+    -webkit-transform-style: preserve-3d;
+    -webkit-perspective: 4000;
+    //-webkit-animation-name: rotate;
+    //-webkit-animation-duration: 20s;
+    //-webkit-animation-timing-function: linear;
+    //-webkit-animation-iteration-count: infinite;
+    -webkit-transform-origin: 50% 50% 100px;
+    transform-origin: 50% 50% 100px;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: rotateX(62deg) rotateY(0deg) rotateZ(226deg) scale3d(.5, .5, .5);
+    transform: rotateX(62deg) rotateY(0deg) rotateZ(226deg) scale3d(.5, .5, .5);
+}
+
+#wrapper div {
+    position: absolute;
+    /*	-webkit-backface-visibility:hidden;*/
+}
+
+#wrapper .plane {
+    width: 700px;
+    height: 700px;
+    background-repeat: no-repeat !important;
+}
+
+#ground {
+    background: url(road1.jpg) 400px 0, url(road1.jpg) 400px 200px, url(road1.jpg) 400px 300px, url(road2.jpg) 400px 400px, url(road3.jpg) 300px 400px, url(road3.jpg) 200px 400px, url(road3.jpg) 100px 400px, url(road2.jpg) 0 400px, url(road1.jpg) 0 300px, url(road1.jpg) 0 500px, url(road1.jpg) 0 600px, url(road2.jpg) 400px 100px, url(road3.jpg) 300px 100px, url(road3.jpg) 500px 100px, url(road3.jpg) 200px 100px, url(road3.jpg) 600px 100px, url(road3.jpg) 100px 100px, url(road2.jpg) 0 100px, url(road1.jpg) 0 0, url(road1.jpg) 0 200px, url(grass.jpg) 200px 0, url(grass.jpg) 100px 0, url(grass.jpg) 300px 300px, url(grass.jpg) 300px 500px, url(grass.jpg) 300px 600px, url(road1.jpg) 400px 600px, url(road1.jpg) 400px 500px, url(road3.jpg) 600px 400px, url(road3.jpg) 500px 400px;
+    background-color: #bbbeaa;
+}
+
+#roof1 {
+    -webkit-transform: translate3d(0, 0, 100px);
+    background: url(roof1.jpg) 100% 0, url(roof1.jpg) 100px 200px, url(roof1.jpg) 100px 300px, url(roof1.jpg) 200px 300px, url(roof1.jpg) 200px 200px, url(roof1.jpg) 300px 200px, url(roof1.jpg) 200px 600px, url(roof1.jpg) 100px 600px, url(roof1.jpg) 200px 500px, url(roof1.jpg) 100px 500px, url(roof1.jpg) 500px 300px, url(roof1.jpg) 500px 200px, url(roof1.jpg) 500px 500px, url(roof1.jpg) 500px 600px;
+}
+
+#roof2 {
+    -webkit-transform: translate3d(0, 0, 200px);
+    background: url(roof1.jpg) 500px 0, url(roof1.jpg) 300px 0, url(roof1.jpg) 600px 300px, url(roof1.jpg) 600px 200px, url(roof1.jpg) 600px 500px, url(roof1.jpg) 600px 600px;
+}
+
+#wrapper .side {
+    top: 0;
+    width: 200px;
+    height: 700px;
+    background-repeat: no-repeat !important;
+    border: none;
+}
+
+#wrapper .side:nth-child(odd) {
+    -webkit-transform: rotateY(90deg);
+    -webkit-transform-origin: 100% 0 0;
+}
+
+#wrapper .side:nth-child(even) {
+    -webkit-transform: rotateY(-90deg) rotateZ(180deg);
+    -webkit-transform-origin: 100% 50% 0;
+}
+
+#wrapper .front {
+    left: 0;
+    width: 700px;
+    height: 200px;
+    background-repeat: no-repeat !important;
+}
+
+#wrapper .front:nth-child(odd) {
+    -webkit-transform: rotateX(-90deg);
+    -webkit-transform-origin: 0 100% 0;
+}
+
+#wrapper .front:nth-child(even) {
+    -webkit-transform: rotateX(90deg) rotateZ(180deg);
+    -webkit-transform-origin: 50% 100% 0;
+}
+
+#front1 {
+    top: -200px;
+    background: url(front1.jpg) 0 100%, url(front1.jpg) 100px 100%, url(front1.jpg) 100px 0, url(front2.jpg) 300px 100%, url(front2.jpg) 300px 0;
+}
+
+#front2 {
+    top: -100px;
+    background: url(front1.jpg) 100% 100%, url(front1.jpg) 500px 100%, url(front1.jpg) 500px 0, url(front2.jpg) 300px 100%, url(front2.jpg) 300px 0;
+}
+
+#front3 {
+    top: 0px;
+    background: url(front3.jpg) 500px 100%, url(front3.jpg) 400px 100%, url(front3.jpg) 300px 100%, url(front2.jpg) 100px 100%, url(front2.jpg) 0 0, url(front2.jpg) 0 100%;
+}
+
+#front4 {
+    top: 100px;
+    background: url(front3.jpg) 300px 100%;
+}
+
+#front5 {
+    top: 200px;
+    background: url(front3.jpg) 400px 100%, url(front3.jpg) 500px 100%, url(front2.jpg) 0 100%, url(front2.jpg) 100px 100%, url(front2.jpg) 0 0;
+}
+
+#front6 {
+    top: 300px;
+    background: url(front4.jpg) 100px 100%, url(front4.jpg) 200px 100%, url(front1.jpg) 600px 0, url(front1.jpg) 600px 100%, url(front1.jpg) 500px 100%;
+}
+
+#front7 {
+    top: 400px;
+}
+
+#front8 {
+    top: 500px;
+    background: url(front4.jpg) 100px 100%, url(front4.jpg) 200px 100%, url(front1.jpg) 500px 100%, url(front1.jpg) 600px 100%, url(front1.jpg) 600px 0;
+}
+
+#side1 {
+    left: -200px;
+}
+
+#side2 {
+    left: -100px;
+    background: url(side3.jpg) 100% 200px, url(side3.jpg) 100% 300px, url(side4.jpg) 100% 500px, url(side4.jpg) 100% 600px;
+}
+
+#side3 {
+    left: 0px;
+}
+
+#side4 {
+    left: 100px;
+    background: url(side2.jpg) 100% 0, url(side2.jpg) 0 0, url(side3.jpg) 100% 300px, url(side4.jpg) 100px 500px, url(side4.jpg) 100px 600px;
+}
+
+#side5 {
+    left: 200px;
+    background: url(side2.jpg) 100% 100%, url(side2.jpg) 0 100%, url(side3.jpg) 100% 400px;
+}
+
+#side6 {
+    left: 300px;
+    background: url(side1.jpg) 100% 0, url(side1.jpg) 0 0, url(side1.jpg) 100% 500px, url(side1.jpg) 100% 600px, url(side2.jpg) 100% 300px, url(side2.jpg) 100% 200px;
+}
+
+#side7 {
+    left: 400px;
+    background: url(side1.jpg) 100% 100%, url(side1.jpg) 0 100%, url(side2.jpg) 0 400px, url(side2.jpg) 0 300px, url(side1.jpg) 0 100px, url(side1.jpg) 0 0;
+}
+
+#side8 {
+    left: 500px;
+    background: url(side1.jpg) 100% 0, url(side1.jpg) 100% 500px, url(side1.jpg) 100% 600px, url(side2.jpg) 100% 300px, url(side2.jpg) 100% 200px, url(side1.jpg) 0 500px, url(side1.jpg) 0 600px, url(side2.jpg) 0 300px, url(side2.jpg) 0 200px;
+}
+
+@-webkit-keyframes rotate {
+    from {
+        -webkit-transform: rotateX(65deg) rotateZ(0) scale3d(0.5, 0.5, 0.5);
+    }
+    to {
+        -webkit-transform: rotateX(65deg) rotateZ(360deg) scale3d(0.5, 0.5, 0.5);
+    }
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>cols-3d-city</id>
+        <internal>false</internal>
+        <link/>
+        <name>COLS 3D City</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+    /* populate the 'data' object */
+    /* e.g., data.table = $sp.getValue('table'); */
+    data.homePageTexts = {};
+    data.homePageTexts.automation = {};
+    data.homePageTexts.consumerization = {};
+    data.homePageTexts.integration = {};
+    data.homePageTexts.visibility = {};
+    data.colsAppDetail = $sp.getWidget('cols-app-details');
+    var gr = new GlideRecord('x_snc_city_home');
+    gr.addActiveQuery();
+    gr.query();
+    while (gr.next()) {
+        var obj = {};
+        $sp.getRecordElements(obj, gr, 'head,sys_id,description,learn_more_text');
+        if (obj.head.display_value.toLowerCase() == 'integration') {
+            data.homePageTexts.integration.head = obj.head.display_value;
+            data.homePageTexts.integration.description = obj.description.display_value;
+            data.homePageTexts.integration.learn_more_text = obj.learn_more_text.display_value;
+        }
+        if (obj.head.display_value.toLowerCase() == 'automation') {
+            data.homePageTexts.automation.head = obj.head.display_value;
+            data.homePageTexts.automation.description = obj.description.display_value;
+            data.homePageTexts.automation.learn_more_text = obj.learn_more_text.display_value;
+
+        }
+        if (obj.head.display_value.toLowerCase() == 'consumerization') {
+            data.homePageTexts.consumerization.head = obj.head.display_value;
+            data.homePageTexts.consumerization.description = obj.description.display_value;
+            data.homePageTexts.consumerization.learn_more_text = obj.learn_more_text.display_value;
+
+        }
+        if (obj.head.display_value.toLowerCase() == 'visibility') {
+            data.homePageTexts.visibility.head = obj.head.display_value;
+            data.homePageTexts.visibility.description = obj.description.display_value;
+            data.homePageTexts.visibility.learn_more_text = obj.learn_more_text.display_value;
+
+        }
+    }
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>sush.chandrashekar</sys_created_by>
+        <sys_created_on>2017-06-07 18:48:19</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>acce3c10dbdfbe00c3beffa31d96190c</sys_id>
+        <sys_mod_count>766</sys_mod_count>
+        <sys_name>COLS 3D City</sys_name>
+        <sys_package display_value="City" source="x_snc_city">75d4ebaedb033e00c3beffa31d9619d8</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="City">75d4ebaedb033e00c3beffa31d9619d8</sys_scope>
+        <sys_update_name>sp_widget_acce3c10dbdfbe00c3beffa31d96190c</sys_update_name>
+        <sys_updated_by>sush.chandrashekar</sys_updated_by>
+        <sys_updated_on>2017-06-30 02:17:40</sys_updated_on>
+        <template><![CDATA[<div class="col-md-12 col-lg-12 col-xs-12 text-center threeD-city-banner setscreenheight">
+    <!-- your widget template -->
+    <div class="banner-encloser">
+        <div class="moving-banner" ng-class="{'moving-banner-with-details':$root.showDetail}">
+            <div class="app-detail"></div>
+            <div class="banner col-md-12 col-xs-12" ng-class="($root.showDetail ? 'move-down' : 'move-up')">
+                <sp-widget widget="c.data.colsAppDetail"></sp-widget>
+                <div class="threeD-city col-md-12 col-xs-12" ng-class="(c.layerSelected ? 'darkerbg' : 'lighterbg')">
+                    <!--<img src="{{c.initialimg}}" />-->
+                    <div class="template-included" ng-include="'COLS-City-image-lightson'"></div>
+                    <div class="clickable" ng-click="c.changeImg()">
+
+                    </div>
+                    <div class="each-app">
+
+                        <div class="baloon">
+                            <div class="exp">
+                                <a href="?sys_id=1234567890">CG</a>
+                            </div>
+                            <div class="line"></div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!--<div class="text-portion">-->
+        <div class="each-layer text-center" ng-class="{'each-layer-with-details':$root.showDetail}" ng-style="{'background':c.layerBg}">
+            <div>
+                <h3>{{c.layer.head}}</h3>
+                <p>
+                    {{c.layer.description}}
+                </p>
+            </div>
+            <div class="move-city-up " ng-click="c.hideDetail()">
+                <div class="exp">
+                    <i class="fa fa-2x fa-arrow-circle-up" aria-hidden="true"></i>
+                </div>
+
+            </div>
+
+        </div>
+        <!--<div ng-if="!$root.showDetail" class="get-in-touch text-center" ng-style="{'background':c.layerLearnMoreBg}">
+            <p>{{c.layer.learn_more_text}}</p>
+        </div>-->
+        <!--</div>-->
+    </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

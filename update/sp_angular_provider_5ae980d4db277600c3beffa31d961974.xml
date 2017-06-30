@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_angular_provider">
+    <sp_angular_provider action="INSERT_OR_UPDATE">
+        <name>anchorSmoothScroll</name>
+        <script><![CDATA[function ($document, $window) {
+
+    var document = $document[0];
+    var window = $window;
+
+    function getCurrentPagePosition(window, document) {
+        // Firefox, Chrome, Opera, Safari
+        if (window.pageYOffset) return window.pageYOffset;
+        // Internet Explorer 6 - standards mode
+        if (document.documentElement && document.documentElement.scrollTop)
+            return document.documentElement.scrollTop;
+        // Internet Explorer 6, 7 and 8
+        if (document.body.scrollTop) return document.body.scrollTop;
+        return 0;
+    }
+
+    function getElementY(document, element) {
+        var y = element.offsetTop;
+        var node = element;
+        while (node.offsetParent && node.offsetParent != document.body) {
+            node = node.offsetParent;
+            y += node.offsetTop;
+        }
+        return y;
+    }
+
+    this.scrollDown = function (startY, stopY, speed, distance) {
+
+        var timer = 0;
+
+        var step = Math.round(distance / 25);
+        var leapY = startY + step;
+
+        for (var i = startY; i < stopY; i += step) {
+            setTimeout("window.scrollTo(0, " + leapY + ")", timer * speed);
+            leapY += step;
+            if (leapY > stopY) leapY = stopY;
+            timer++;
+        }
+    };
+
+    this.scrollUp = function (startY, stopY, speed, distance) {
+
+        var timer = 0;
+
+        var step = Math.round(distance / 25);
+        var leapY = startY - step;
+
+        for (var i = startY; i > stopY; i -= step) {
+            setTimeout("window.scrollTo(0, " + leapY + ")", timer * speed);
+            leapY -= step;
+            if (leapY < stopY) leapY = stopY;
+            timer++;
+        }
+    };
+
+    this.scrollToTop = function (stopY) {
+        scrollTo(0, stopY);
+    };
+
+    this.scrollTo = function (elementId, speed) {
+        // This scrolling function
+        // is from http://www.itnewb.com/tutorial/Creating-the-Smooth-Scroll-Effect-with-JavaScript
+
+        var element = document.getElementById(elementId);
+
+        if (element) {
+            var startY = getCurrentPagePosition(window, document);
+            var stopY = getElementY(document, element);
+
+            var distance = stopY > startY ? stopY - startY : startY - stopY;
+
+            if (distance < 100) {
+                this.scrollToTop(stopY);
+
+            } else {
+
+                var defaultSpeed = Math.round(distance / 100);
+                speed = speed || (defaultSpeed > 20 ? 20 : defaultSpeed);
+
+                if (stopY > startY) {
+                    this.scrollDown(startY, stopY, speed, distance);
+                } else {
+                    this.scrollUp(startY, stopY, speed, distance);
+                }
+            }
+
+        }
+	}
+}
+   
+]]></script>
+        <sys_class_name>sp_angular_provider</sys_class_name>
+        <sys_created_by>sush.chandrashekar</sys_created_by>
+        <sys_created_on>2017-06-20 01:06:08</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>5ae980d4db277600c3beffa31d961974</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>anchorSmoothScroll</sys_name>
+        <sys_package display_value="City" source="x_snc_city">75d4ebaedb033e00c3beffa31d9619d8</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="City">75d4ebaedb033e00c3beffa31d9619d8</sys_scope>
+        <sys_update_name>sp_angular_provider_5ae980d4db277600c3beffa31d961974</sys_update_name>
+        <sys_updated_by>sush.chandrashekar</sys_updated_by>
+        <sys_updated_on>2017-06-20 01:06:08</sys_updated_on>
+        <type>service</type>
+    </sp_angular_provider>
+</record_update>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_documentation element="app_experience" label="App experience" language="en" table="x_snc_city_app_artifact">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>app_experience</element>
+            <help/>
+            <hint/>
+            <label>App experience</label>
+            <language>en</language>
+            <name>x_snc_city_app_artifact</name>
+            <plural>App experiences</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>chuck.tomasi</sys_created_by>
+            <sys_created_on>2017-06-27 20:06:27</sys_created_on>
+            <sys_customer_update>true</sys_customer_update>
+            <sys_id>527254fedb6f7200c3beffa31d961918</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>App experience</sys_name>
+            <sys_package display_value="City" source="x_snc_city">75d4ebaedb033e00c3beffa31d9619d8</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="City">75d4ebaedb033e00c3beffa31d9619d8</sys_scope>
+            <sys_update_name>sys_documentation_x_snc_city_app_artifact_app_experience_en</sys_update_name>
+            <sys_updated_by>chuck.tomasi</sys_updated_by>
+            <sys_updated_on>2017-06-27 20:06:27</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

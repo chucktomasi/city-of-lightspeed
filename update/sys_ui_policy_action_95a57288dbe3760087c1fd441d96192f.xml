@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ui_policy_action">
+    <sys_ui_policy_action action="INSERT_OR_UPDATE">
+        <disabled>ignore</disabled>
+        <field>animated_gif</field>
+        <mandatory>ignore</mandatory>
+        <sys_class_name>sys_ui_policy_action</sys_class_name>
+        <sys_created_by>chuck.tomasi</sys_created_by>
+        <sys_created_on>2017-06-19 18:56:11</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>95a57288dbe3760087c1fd441d96192f</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>animated_gif</sys_name>
+        <sys_package display_value="City" source="x_snc_city">75d4ebaedb033e00c3beffa31d9619d8</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="City">75d4ebaedb033e00c3beffa31d9619d8</sys_scope>
+        <sys_update_name>sys_ui_policy_action_95a57288dbe3760087c1fd441d96192f</sys_update_name>
+        <sys_updated_by>chuck.tomasi</sys_updated_by>
+        <sys_updated_on>2017-06-19 19:02:19</sys_updated_on>
+        <table>x_snc_city_app_artifact</table>
+        <ui_policy display_value="Media type=GIF">f495fe48dbe3760087c1fd441d9619ed</ui_policy>
+        <visible>true</visible>
+    </sys_ui_policy_action>
+</record_update>

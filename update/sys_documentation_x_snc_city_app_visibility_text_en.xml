@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_documentation element="visibility_text" label="Visibility text" language="en" table="x_snc_city_app">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>visibility_text</element>
+            <help/>
+            <hint/>
+            <label>Visibility text</label>
+            <language>en</language>
+            <name>x_snc_city_app</name>
+            <plural>Visibility texts</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>chuck.tomasi</sys_created_by>
+            <sys_created_on>2017-06-21 13:54:33</sys_created_on>
+            <sys_customer_update>true</sys_customer_update>
+            <sys_id>d4d3cc74db27b60087c1fd441d961918</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Visibility text</sys_name>
+            <sys_package display_value="City" source="x_snc_city">75d4ebaedb033e00c3beffa31d9619d8</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="City">75d4ebaedb033e00c3beffa31d9619d8</sys_scope>
+            <sys_update_name>sys_documentation_x_snc_city_app_visibility_text_en</sys_update_name>
+            <sys_updated_by>chuck.tomasi</sys_updated_by>
+            <sys_updated_on>2017-06-21 13:54:33</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

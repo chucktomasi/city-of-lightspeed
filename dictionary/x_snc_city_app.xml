@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Application" max_length="40" name="x_snc_city_app" type="collection">
+        <element default="true" label="Active" max_length="40" name="active" type="boolean"/>
+        <element attributes="edge_encryption_enabled=true" label="Architecture heading" max_length="40" name="architecture_heading" type="string"/>
+        <element attributes="pdf_cell_type=image" label="Architecture image" max_length="40" name="architecture_image" type="user_image"/>
+        <element attributes="edge_encryption_enabled=true" label="Architecture text" max_length="1000" name="architecture_text" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Automation heading" max_length="40" name="automation_heading" type="string"/>
+        <element label="Automation text" max_length="1000" name="automation_text" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Consumerization heading" max_length="40" name="consumerization_heading" type="string"/>
+        <element label="Consumerization text" max_length="1000" name="consumerization_text" type="string"/>
+        <element label="Description" max_length="4000" name="description" type="string"/>
+        <element label="Flag text" max_length="40" name="flag_text" type="string"/>
+        <element label="Git repo URL" max_length="1024" name="git_repo_url" type="url"/>
+        <element attributes="pdf_cell_type=image" label="Home page icon" max_length="40" name="home_page_icon" type="user_image"/>
+        <element attributes="edge_encryption_enabled=true" label="Integration heading" max_length="40" name="integration_heading" type="string"/>
+        <element label="Integration text" max_length="1000" name="integration_text" type="string"/>
+        <element display="true" label="Name" max_length="40" name="name" type="string"/>
+        <element label="Overview video" max_length="1024" name="overview_video" type="url"/>
+        <element label="Path" max_length="40" name="path" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Repositories heading" max_length="40" name="repositories_heading" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Repositories text" max_length="1000" name="repositories_text" type="string"/>
+        <element attributes="edge_encryption_enabled=true" default="id=city_github" label="Repo help" max_length="40" name="repo_help" type="string"/>
+        <element label="Screenshot" max_length="40" name="screenshot" type="user_image"/>
+        <element attributes="edge_encryption_enabled=true" label="Visibility heading" max_length="40" name="visibility_heading" type="string"/>
+        <element label="Visibility text" max_length="1000" name="visibility_text" type="string"/>
+    </element>
+</database>

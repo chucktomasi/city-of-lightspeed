@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="App artifact" max_length="40" name="x_snc_city_app_artifact" type="collection">
+        <element default="true" label="Active" max_length="40" name="active" type="boolean"/>
+        <element label="Animated GIF" max_length="40" name="animated_gif" type="user_image"/>
+        <element label="App" max_length="32" name="app" reference="x_snc_city_app" type="reference"/>
+        <element label="App experience" max_length="40" name="app_experience" type="user_image"/>
+        <element label="Capability" max_length="40" name="capability" type="string"/>
+        <element label="Dev experience" max_length="40" name="dev_experience" type="user_image"/>
+        <element attributes="edge_encryption_enabled=true" choice="3" default="No code" label="Level" max_length="40" name="level" type="string">
+            <choice>
+                <element label="No code" sequence="0" value="No code"/>
+                <element label="Low code" sequence="1" value="Low code"/>
+                <element label="Pro code" sequence="2" value="Pro code"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" choice="3" default="GIF" label="Media type" max_length="40" name="media_type" type="string">
+            <choice>
+                <element label="GIF" sequence="0" value="GIF"/>
+                <element label="MP4" sequence="1" value="MP4"/>
+            </choice>
+        </element>
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" read_only="true" type="string"/>
+        <element default="100" label="Order" max_length="40" name="order" type="integer"/>
+        <element attributes="edge_encryption_enabled=true" choice="3" default="App Experience" label="Persona" max_length="40" name="persona" type="string">
+            <choice>
+                <element label="App Experience" sequence="0" value="App Experience"/>
+                <element label="Dev Experience" sequence="1" value="Dev Experience"/>
+            </choice>
+        </element>
+        <element label="Text" mandatory="true" max_length="1000" name="text" type="string"/>
+        <element choice="1" label="Type" mandatory="true" max_length="40" name="type" type="choice">
+            <choice>
+                <element label="Automation" sequence="0" value="Automation"/>
+                <element label="Integration" sequence="1" value="Integration"/>
+                <element label="Visibility" sequence="2" value="Visibility"/>
+                <element label="Consumerization" sequence="3" value="Consumerization"/>
+            </choice>
+        </element>
+        <element label="Video URL" max_length="1024" name="video_url" type="url"/>
+        <index name="index">
+            <element name="app"/>
+        </index>
+    </element>
+</database>

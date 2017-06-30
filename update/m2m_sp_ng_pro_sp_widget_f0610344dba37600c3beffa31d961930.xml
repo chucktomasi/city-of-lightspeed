@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="m2m_sp_ng_pro_sp_widget">
+    <m2m_sp_ng_pro_sp_widget action="INSERT_OR_UPDATE">
+        <sp_angular_provider display_value="skrollr">a7014f04dba37600c3beffa31d961989</sp_angular_provider>
+        <sp_widget display_value="COLS Artifacts">61600b04dba37600c3beffa31d9619e8</sp_widget>
+        <sys_class_name>m2m_sp_ng_pro_sp_widget</sys_class_name>
+        <sys_created_by>sush.chandrashekar</sys_created_by>
+        <sys_created_on>2017-06-19 19:47:22</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>f0610344dba37600c3beffa31d961930</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>skrollr.COLS Artifacts</sys_name>
+        <sys_package display_value="City" source="x_snc_city">75d4ebaedb033e00c3beffa31d9619d8</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="City">75d4ebaedb033e00c3beffa31d9619d8</sys_scope>
+        <sys_update_name>m2m_sp_ng_pro_sp_widget_f0610344dba37600c3beffa31d961930</sys_update_name>
+        <sys_updated_by>sush.chandrashekar</sys_updated_by>
+        <sys_updated_on>2017-06-19 19:47:22</sys_updated_on>
+    </m2m_sp_ng_pro_sp_widget>
+</record_update>

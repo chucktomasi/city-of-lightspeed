@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <client_script><![CDATA[function() {
+  /* widget controller */
+  var c = this;
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.dev-cetegories {
+    clear: both;
+    background: $city-beige;
+    padding: 30px;
+    .boxes {
+        display: flex;
+        -webkit-flex-flow: row wrap;
+        justify-content: center;
+        flex-flow: wrap;
+        align-items: center;
+        .each-box {
+            height: 200px;
+            width: 240px;
+            margin: 20px;
+            .body {
+                background: $learn-more-box;
+                height: 160px;
+                padding: 20px;
+                width: 240px;
+                border-radius: 30px 30px 0px 0px;
+                .head {
+                    font-size: 24px;
+                    font-weight: bold;
+                    color: rgba(0, 0, 0, 0.6);
+                    text-transform: uppercase;
+                }
+                .content {
+                    font-size: 18px;
+                    color: rgba(0, 0, 0, 0.6);
+                    margin: 0px;
+                    line-height: 1.2;
+                }
+            }
+            .foot {
+                height: 40px;
+                width: 240px;
+                background: $learn-more-foot-bg;
+                border-radius: 0px 0px 30px 30px;
+                padding: 10px;
+                p {
+                    margin: 0px;
+                    color: #e7e7e7;
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+    .app-dev-div {
+        padding: 40px 160px;
+        .head {
+            font-size: 46px;
+            font-weight: bold;
+            color: #8e8b87;
+        }
+        .content {
+            font-size: 36px;
+            font-weight: 300;
+            color: #8e8b87;
+            line-height: 1.2;
+        }
+    }
+}
+
+.learn-more {
+    background: $learn-more-foot-bg;
+    padding: 10px;
+    p {
+        margin-bottom: 0px;
+        font-size: 32px;
+        font-weight: 600;
+        color: #e7e7e7;
+        text-transform: uppercase;
+    }
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>cols-development-categories</id>
+        <internal>false</internal>
+        <link/>
+        <name>COLS Development Categories</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>sush.chandrashekar</sys_created_by>
+        <sys_created_on>2017-06-07 20:31:44</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>2b6719dcdbdfbe00c3beffa31d961906</sys_id>
+        <sys_mod_count>70</sys_mod_count>
+        <sys_name>COLS Development Categories</sys_name>
+        <sys_package display_value="City" source="x_snc_city">75d4ebaedb033e00c3beffa31d9619d8</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="City">75d4ebaedb033e00c3beffa31d9619d8</sys_scope>
+        <sys_update_name>sp_widget_2b6719dcdbdfbe00c3beffa31d961906</sys_update_name>
+        <sys_updated_by>sush.chandrashekar</sys_updated_by>
+        <sys_updated_on>2017-06-09 19:39:48</sys_updated_on>
+        <template><![CDATA[<div class="text-center dev-cetegories">
+    <!-- your widget template -->
+    <div class="boxes">
+
+        <div class="each-box">
+            <div class="body">
+                <p class="head">
+                    low code
+                </p>
+                <p class="content">
+                    Design and deploy custom apps faster and with more control.
+                </p>
+
+            </div>
+            <div class="foot text-center">
+                <p>learn more</p>
+            </div>
+        </div>
+        <div class="each-box">
+            <div class="body">
+                <p class="head">
+                    custome dev
+                </p>
+                <p class="content">
+                    Your one stop shop. Manage multiple builds from one dashboard.
+                </p>
+
+            </div>
+            <div class="foot text-center">
+                <p>learn more</p>
+            </div>
+        </div>
+        <div class="each-box">
+            <div class="body">
+                <p class="head">
+                    MOBILE CLIENT
+                </p>
+                <p class="content">
+                    Who wants to be tied to a laptop? Conduct business on your phone.
+                </p>
+
+            </div>
+            <div class="foot text-center">
+                <p>learn more</p>
+            </div>
+        </div>
+        <div class="each-box">
+            <div class="body">
+                <p class="head">
+                    WORKFLOW
+                </p>
+                <p class="content">
+                    Build application forms without writing a single line of code.
+                </p>
+
+            </div>
+            <div class="foot text-center">
+                <p>learn more</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="app-dev-div">
+        <h3 class="head">
+            App development made easy
+        </h3>
+        <p class="content">
+            When developers are no longer bogged down with infrastructure and commoditized code, they can focus on higher value features. It’s easy with ServiceNow’s rich set of APIs, frameworks and deployment options.
+        </p>
+    </div>
+
+</div>
+<div class="learn-more text-center">
+    <p>learn more</p>
+</div>]]></template>
+    </sp_widget>
+</record_update>

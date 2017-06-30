@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="App repository" max_length="40" name="x_snc_city_app_repo" type="collection">
+        <element default="true" label="Active" max_length="40" name="active" type="boolean"/>
+        <element label="App" max_length="32" name="app" read_only="true" reference="x_snc_city_app" type="reference"/>
+        <element display="true" label="Short description" max_length="100" name="short_description" type="string"/>
+        <element label="URL" max_length="1024" name="url" type="url"/>
+        <element label="Version" max_length="1000" name="version" reference="x_snc_city_sn_version" reference_qual="active=true^EQ" reference_qual_condition="active=true^EQ" type="glide_list"/>
+        <index name="index">
+            <element name="app"/>
+        </index>
+    </element>
+</database>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Home" max_length="40" name="x_snc_city_home" type="collection">
+        <element default="true" label="Active" max_length="40" name="active" type="boolean"/>
+        <element label="Description" max_length="1000" name="description" type="string"/>
+        <element display="true" label="Head" max_length="40" name="head" type="string"/>
+        <element label="Image" max_length="40" name="image" type="user_image"/>
+        <element default="Learn more" label="Learn more text" max_length="40" name="learn_more_text" type="string"/>
+        <element label="Order" max_length="40" name="order" type="integer"/>
+        <element label="Welcome page" max_length="40" name="welcome_page" type="boolean"/>
+    </element>
+</database>

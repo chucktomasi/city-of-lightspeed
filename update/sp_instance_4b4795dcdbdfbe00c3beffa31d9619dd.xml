@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_instance">
+    <sp_instance action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <glyph/>
+        <id/>
+        <order>0</order>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="1">cb3755dcdbdfbe00c3beffa31d961927</sp_column>
+        <sp_widget display_value="COLS 3D City">acce3c10dbdfbe00c3beffa31d96190c</sp_widget>
+        <sys_class_name>sp_instance</sys_class_name>
+        <sys_created_by>sush.chandrashekar</sys_created_by>
+        <sys_created_on>2017-06-07 20:26:38</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>4b4795dcdbdfbe00c3beffa31d9619dd</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="City" source="x_snc_city">75d4ebaedb033e00c3beffa31d9619d8</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="City">75d4ebaedb033e00c3beffa31d9619d8</sys_scope>
+        <sys_update_name>sp_instance_4b4795dcdbdfbe00c3beffa31d9619dd</sys_update_name>
+        <sys_updated_by>sush.chandrashekar</sys_updated_by>
+        <sys_updated_on>2017-06-07 20:39:39</sys_updated_on>
+        <title/>
+        <url/>
+        <widget_parameters/>
+    </sp_instance>
+    <sys_translated_text action="delete_multiple" query="documentkey=4b4795dcdbdfbe00c3beffa31d9619dd"/>
+</record_update>

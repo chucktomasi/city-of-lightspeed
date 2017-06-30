@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <client_script><![CDATA[function() {
+    /* widget controller */
+    var c = this;
+    console.log(c.data.artifacts);
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>#easing {
+    top: 10%;
+    width: 50%;
+    z-index: 101;
+}
+
+.artifacts {
+    color: #333;
+    background: $city-beige;
+    text-align: center;
+    h3 {
+        color: #333;
+        font-weight: bold;
+        font-size: 36px;
+    }
+    .each-artifact {
+        text-align: center;
+        .image {
+            padding: 10px;
+            img {
+                width: 70%;
+            }
+            video {
+                width: 60%;
+            }
+        }
+        .text {
+            padding: 10px;
+            .capability {
+                font-size: 18px;
+                font-weight: bold;
+            }
+            .value-statement {
+                font-size: 16px;
+            }
+            .text {
+                font-size: 14px;
+            }
+        }
+    }
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>cols-artifacts</id>
+        <internal>false</internal>
+        <link/>
+        <name>COLS Artifacts</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+    /* populate the 'data' object */
+    /* e.g., data.table = $sp.getValue('table'); */
+    data.artifacts = {};
+    data.artifacts.automation = [];
+    data.artifacts.consumerization = [];
+    data.artifacts.integration = [];
+    data.artifacts.visibility = [];
+    var gr = new GlideRecord('x_snc_city_app_artifact');
+    gr.addActiveQuery();
+    gr.query();
+    while (gr.next()) {
+        if (gr.type.toString() == 'Automation') {
+            var obj = {};
+            $sp.getRecordElements(obj, gr, 'type,sys_id,number,capability,persona,value_statement,text,media_type,animated_gif,video_url');
+            data.artifacts.automation.push(obj);
+        }
+        if (gr.type.toString() == 'Consumerization') {
+            var obj = {};
+            $sp.getRecordElements(obj, gr, 'type,sys_id,number,capability,persona,value_statement,text,media_type,animated_gif,video_url');
+            data.artifacts.consumerization.push(obj);
+        }
+        if (gr.type.toString() == 'Integration') {
+            var obj = {};
+            $sp.getRecordElements(obj, gr, 'type,sys_id,number,capability,persona,value_statement,text,media_type,animated_gif,video_url');
+            data.artifacts.integration.push(obj);
+        }
+        if (gr.type.toString() == 'Visibility') {
+            var obj = {};
+            $sp.getRecordElements(obj, gr, 'type,sys_id,number,capability,persona,value_statement,text,media_type,animated_gif,video_url');
+            data.artifacts.visibility.push(obj);
+        }
+    }
+    //console.log(data.artifacts);
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>sush.chandrashekar</sys_created_by>
+        <sys_created_on>2017-06-19 19:44:23</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>61600b04dba37600c3beffa31d9619e8</sys_id>
+        <sys_mod_count>106</sys_mod_count>
+        <sys_name>COLS Artifacts</sys_name>
+        <sys_package display_value="City" source="x_snc_city">75d4ebaedb033e00c3beffa31d9619d8</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="City">75d4ebaedb033e00c3beffa31d9619d8</sys_scope>
+        <sys_update_name>sp_widget_61600b04dba37600c3beffa31d9619e8</sys_update_name>
+        <sys_updated_by>sush.chandrashekar</sys_updated_by>
+        <sys_updated_on>2017-06-20 00:20:24</sys_updated_on>
+        <template><![CDATA[<div class="artifacts clearfix" id="scrollContainer">
+    <!-- your widget template -->
+    <!--<div skrollr data-0="background-color:rgb(0,0,255);" data-500="background-color:rgb(255,0,0);">WOOOT</div>-->
+    <!--<div skrollr data-0="background-color:rgb(0,0,255);transform:rotate(0deg);" data-500="background-color:rgb(255,0,0);transform:rotate(360deg);">WOOOT</div>-->
+
+
+    <!--
+    <div id="easing_wrapper" data-0="display:none;" data-200="display:block;" data-300="background:rgba(0, 0, 0, 0);color[swing]:rgb(0,0,0);" data-350="background:rgba(0,0,0,1);color:rgb(255,255,255);" class="skrollable skrollable-between">
+        <div id="easing" data-300="left:100%" data-500="left:25%;" class="skrollable skrollable-before">
+            <h2>easing?</h2>
+        </div>
+    </div>
+
+
+    <div id="easing" data-200="left:100%" data-900="left:25%;" class="skrollable skrollable-before">
+        <div id="automation">
+            <h3>hey</h3>
+        </div>
+    </div>-->
+
+
+    <div id="automation" ng-show="c.data.artifacts.automation.length > 0" class="col-md-12">
+        <h3>Automation</h3>
+        <div ng-repeat="eachAutomationArtifact in c.data.artifacts.automation" class="each-artifact">
+            <div class="image">
+                <img src="{{eachAutomationArtifact.animated_gif.display_value}}" ng-show="eachAutomationArtifact.media_type.display_value == 'GIF'" />
+                <video controls ng-show="eachIntegrationArtifact.media_type.display_value == 'MP4'">
+                  <source src="{{eachAutomationArtifact.video_url.display_value | trustUrl}}" type="video/mp4">
+
+                  Your browser does not support HTML5 video.
+                </video>
+            </div>
+            <div class="text">
+                <p class="capability">
+                    {{eachAutomationArtifact.capability.display_value}}
+                </p>
+                <p class="value-statement">
+                    {{eachAutomationArtifact.value_statement.display_value}}
+                </p>
+                <p class="text">
+                    {{eachAutomationArtifact.text.display_value}}
+                </p>
+            </div>
+
+        </div>
+    </div>
+    <div id="integration" ng-show="c.data.artifacts.integration.length > 0" class="col-md-12">
+        <h3>Integration</h3>
+        <div ng-repeat="eachIntegrationArtifact in c.data.artifacts.integration" class="each-artifact">
+            <div class="image">
+                <img ng-show="eachIntegrationArtifact.media_type.display_value == 'GIF'" src="{{eachIntegrationArtifact.animated_gif.display_value}}" />
+                <video controls ng-show="eachIntegrationArtifact.media_type.display_value == 'MP4'">
+                  <source src="{{eachIntegrationArtifact.video_url.display_value | trustUrl}}" type="video/mp4">
+
+                  Your browser does not support HTML5 video.
+                </video>
+            </div>
+            <div class="text">
+                <p class="capability">
+                    {{eachIntegrationArtifact.capability.display_value}}
+                </p>
+                <p class="value-statement">
+                    {{eachIntegrationArtifact.value_statement.display_value}}
+                </p>
+                <p class="text">
+                    {{eachIntegrationArtifact.text.display_value}}
+                </p>
+            </div>
+
+        </div>
+    </div>
+    <div id="visibility" ng-show="c.data.artifacts.visibility.length > 0" class="col-md-12">
+        <h3>Visibility</h3>
+        <div ng-repeat="eachVisibilityArtifact in c.data.artifacts.visibility" class="each-artifact">
+            <div class="image">
+                <img src="{{eachVisibilityArtifact.animated_gif.display_value}}" ng-show="eachVisibilityArtifact.media_type.display_value == 'GIF'" />
+                <video controls ng-show="eachVisibilityArtifact.media_type.display_value == 'MP4'">
+                  <source src="{{eachVisibilityArtifact.video_url.display_value | trustUrl}}" type="video/mp4">
+                  Your browser does not support HTML5 video.
+                </video>
+            </div>
+            <div class="text">
+                <p class="capability">
+                    {{eachVisibilityArtifact.capability.display_value}}
+                </p>
+                <p class="value-statement">
+                    {{eachVisibilityArtifact.value_statement.display_value}}
+                </p>
+                <p class="text">
+                    {{eachVisibilityArtifact.text.display_value}}
+                </p>
+            </div>
+
+        </div>
+    </div>
+    <div id="consumerization" ng-show="c.data.artifacts.consumerization.length > 0" class="col-md-12">
+        <h3>Consumerization</h3>
+        <div ng-repeat="eachConsumerization in c.data.artifacts.consumerization" class="each-artifact">
+            <div class="image">
+                <img src="{{eachConsumerization.animated_gif.display_value}}" />
+            </div>
+            <div class="text">
+                <p class="capability">
+                    {{eachConsumerization.capability.display_value}}
+                </p>
+                <p class="value-statement">
+                    {{eachConsumerization.value_statement.display_value}}
+                </p>
+                <p class="text">
+                    {{eachConsumerization.text.display_value}}
+                </p>
+            </div>
+
+        </div>
+    </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

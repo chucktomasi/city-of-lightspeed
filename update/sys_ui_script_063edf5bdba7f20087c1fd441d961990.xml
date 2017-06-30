@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ui_script">
+    <sys_ui_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <description/>
+        <global>false</global>
+        <name>x_snc_city.COLS Components</name>
+        <script><![CDATA[(function(angular) {
+    angular.module('cols-components', [])
+        .run(function($rootScope, $location, $window, $timeout, $http, spUtil, glideUserSession, snRecordWatcher) {
+            //debugger;
+            // Loop thru empting this out
+            if ($rootScope.$$listenerCount['$locationChangeSuccess'] > 0) {
+                $rootScope.$$listeners['$locationChangeSuccess'][0] = null;
+            }
+
+            // var oldState = $location.search().state;
+            var oid = $location.search().id;
+            var oldPath = $location.path();
+
+            $rootScope.$on('$locationChangeSuccess', function(e, newUrl, oldUrl) {
+                //debugger;
+                // debugger;
+                var locationChanged = (oldUrl != newUrl);
+                var s = $location.search();
+                var p = $location.path();
+
+                // Has portal changed?
+                if (oldPath != p) {
+                    $window.location.href = $location.absUrl();
+                    return;
+                }
+
+                // page is handling?
+                if (angular.isDefined($rootScope.containers) && oid == s.id && s.spa) {
+                    e.pageIsHandling = true;
+                    return;
+                }
+
+                // Redirect if not service portal? - chat with HR support does this...
+                // And prevent endless redirect for requests like /sp/cache.do
+                if (p.indexOf('.do') > 0 && p.indexOf('sp.do') == -1) {
+                    var newUrl = $location.absUrl();
+                    newUrl = newUrl.substr(newUrl.search(/[^\/]+.do/));
+                    $window.location.href = '/' + newUrl;
+                    return;
+                }
+
+                // Redirect if the current page is the login page
+                if (!window.NOW.has_access && locationChanged) {
+                    $window.location.href = $location.absUrl();
+                    return;
+                }
+
+                if (s.sys_id) {
+                    $rootScope.$broadcast('showAppDetail', '123456789');
+                    return;
+                }
+
+
+                // TODO Apply the page api
+                // debugger;
+            });
+        })
+
+    .run(function($http) {
+        $http.defaults.headers.common['X-UserToken'] = window.g_ck;
+    });
+})(angular);]]></script>
+        <script_name>COLS Components</script_name>
+        <sys_class_name>sys_ui_script</sys_class_name>
+        <sys_created_by>sush.chandrashekar</sys_created_by>
+        <sys_created_on>2017-06-30 00:14:37</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>063edf5bdba7f20087c1fd441d961990</sys_id>
+        <sys_mod_count>18</sys_mod_count>
+        <sys_name>x_snc_city.COLS Components</sys_name>
+        <sys_package display_value="City" source="x_snc_city">75d4ebaedb033e00c3beffa31d9619d8</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="City">75d4ebaedb033e00c3beffa31d9619d8</sys_scope>
+        <sys_update_name>sys_ui_script_063edf5bdba7f20087c1fd441d961990</sys_update_name>
+        <sys_updated_by>sush.chandrashekar</sys_updated_by>
+        <sys_updated_on>2017-06-30 01:13:20</sys_updated_on>
+        <use_scoped_format>false</use_scoped_format>
+    </sys_ui_script>
+</record_update>

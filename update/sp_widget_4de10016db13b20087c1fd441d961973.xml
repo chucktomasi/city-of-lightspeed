@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <client_script><![CDATA[function($document, $anchorScroll) {
+    /* widget controller */
+    var c = this;
+    var offset = 100;
+    var duration = 2000; //milliseconds
+
+
+    c.scroll = function(id) {
+        $anchorScroll(id);
+    }
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.three-boxes {
+    width: 100%;
+    .mobile-selector {
+        .exp {
+            margin: 5px;
+            width: 100px;
+            height: 100px;
+            background-color: #ded3c0;
+            border-radius: 100%;
+            line-height: 80px;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+        }
+        .consumer {
+            background: $consumerization-bg;
+        }
+        .automate {
+            background: $consumerization-bg;
+        }
+    }
+    .top-div {
+        width: 100%;
+        background: $consumerization-bg;
+        text-align: center;
+        padding: 10px;
+        p {
+            font-size: 32px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 0px;
+            @media screen and (max-width: 414px) {
+                font-size: 26px;
+            }
+        }
+    }
+    .boxes {
+        padding: 0px;
+        .box {
+            height: 300px;
+            text-align: center;
+            padding: 30px;
+            @media screen and (max-width: 990px) {
+                height: 249px;
+                padding: 10px;
+            }
+            h3 {
+                font-size: 46px;
+                font-weight: bold;
+                color: #fff;
+                @media screen and (max-width: 990px) {
+                    font-size: 26px;
+                }
+            }
+            p {
+                font-size: 28px;
+                color: #fff;
+                font-weight: 300;
+                @media screen and (max-width: 990px) {
+                    font-size: 22px;
+                }
+            }
+        }
+        .auto {
+            background: $automation-bg;
+        }
+        .integration {
+            background: $integration-bg;
+        }
+        .visibility {
+            background: $visibility-bg;
+        }
+    }
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>cols-three-boxes</id>
+        <internal>false</internal>
+        <link/>
+        <name>COLS Three Boxes</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+    /* populate the 'data' object */
+    /* e.g., data.table = $sp.getValue('table'); */
+    var sys_id = $sp.getParameter('sys_id');
+
+    var gr = new GlideRecord('x_snc_city_app');
+    gr.addQuery('sys_id', sys_id);
+    gr.query();
+    if (gr.next()) {
+        var obj = {};
+        $sp.getRecordElements(obj, gr, 'name,sys_id,description,screenshot,site,consumerization_text,automation_text,integration_text,visibility_text');
+        data.apprecord = obj;
+    }
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>sush.chandrashekar</sys_created_by>
+        <sys_created_on>2017-06-13 19:22:34</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>4de10016db13b20087c1fd441d961973</sys_id>
+        <sys_mod_count>93</sys_mod_count>
+        <sys_name>COLS Three Boxes</sys_name>
+        <sys_package display_value="City" source="x_snc_city">75d4ebaedb033e00c3beffa31d9619d8</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="City">75d4ebaedb033e00c3beffa31d9619d8</sys_scope>
+        <sys_update_name>sp_widget_4de10016db13b20087c1fd441d961973</sys_update_name>
+        <sys_updated_by>sush.chandrashekar</sys_updated_by>
+        <sys_updated_on>2017-06-21 18:27:29</sys_updated_on>
+        <template><![CDATA[<div class="three-boxes">
+    <!-- your widget template -->
+    <div class="mobile-selector">
+        <div class="exp consumer" tabindex="0">
+        </div>
+        <div class="exp automate" tabindex="0">
+        </div>
+        <div class="exp integrate" tabindex="0">
+        </div>
+        <div class="exp visibility" tabindex="0">
+        </div>
+    </div>
+    <div class="top-div">
+        <p>
+            < < Consumerization & Speed> >
+        </p>
+    </div>
+    <div class="boxes col-md-12" du-scroll-container="scrollContainer">
+
+        <div class="box auto col-md-4" ng-click="c.scroll('automation')">
+            <h3>Automation</h3>
+            <p>Text about how this app uses OOTB Automation to power adding events.</p>
+        </div>
+        <div class="box integration col-md-4" ng-click="c.scroll('integration')">
+            <h3>Integration</h3>
+            <p>Text about how this app uses Integration to power the experience.</p>
+        </div>
+        <div class="box visibility col-md-4" ng-click="c.scroll('visibility')">
+            <h3>Visibility</h3>
+            <p>Text about how both the consumer and event owner are empowered through anaylitics.</p>
+        </div>
+    </div>
+
+</div>]]></template>
+    </sp_widget>
+</record_update>
