@@ -5,8 +5,11 @@
         <element label="Animated GIF" max_length="40" name="animated_gif" type="user_image"/>
         <element label="App" max_length="32" name="app" reference="x_snc_city_app" type="reference"/>
         <element label="App experience" max_length="40" name="app_experience" type="user_image"/>
+        <element label="Background Gradient1" max_length="40" name="background_gradient1" type="color"/>
+        <element label="&#9; Background Gradient2" max_length="40" name="background_gradient2" type="color"/>
         <element label="Capability" max_length="40" name="capability" type="string"/>
         <element label="Dev experience" max_length="40" name="dev_experience" type="user_image"/>
+        <element attributes="edge_encryption_enabled=true" label="Heading" max_length="40" name="heading" type="string"/>
         <element attributes="edge_encryption_enabled=true" choice="3" default="No code" label="Level" max_length="40" name="level" type="string">
             <choice>
                 <element label="No code" sequence="0" value="No code"/>
@@ -33,8 +36,8 @@
             <choice>
                 <element label="Automation" sequence="0" value="Automation"/>
                 <element label="Integration" sequence="1" value="Integration"/>
-                <element label="Visibility" sequence="2" value="Visibility"/>
-                <element label="Consumerization" sequence="3" value="Consumerization"/>
+                <element label="Experience" sequence="2" value="Experience"/>
+                <element label="Insight" sequence="3" value="Insight"/>
             </choice>
         </element>
         <element label="Video URL" max_length="1024" name="video_url" type="url"/>

@@ -1,21 +1,563 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <record_update table="sp_widget">
     <sp_widget action="INSERT_OR_UPDATE">
-        <client_script><![CDATA[function appdetail($rootScope) {
+        <client_script><![CDATA[function appdetail($rootScope, $location) {
     /* widget controller */
     var c = this;
+    c.activeButton = "";
+    c.showVideo = false;
+    c.searchObject = $location.search();
+    c.tourVideo = document.getElementById("tourVideo");
+    c.developSlideShow = false;
+    c.mobileSlideShow = [{
+            type: 'explainKeyTerms',
+            devtype: 'experience'
+        },
+        {
+            type: 'explainKeyTerms',
+            devtype: 'automation'
+        },
+        {
+            type: 'explainKeyTerms',
+            devtype: 'integration'
+        }, {
+            type: 'explainKeyTerms',
+            devtype: 'insight'
+        }, {
+            type: 'appRelatedStuff',
+            devtype: 'architecture'
+        }, {
+            type: 'appRelatedStuff',
+            devtype: 'repositories'
+        }
+    ];
 
+    c.tourVideo.onwaiting = function() {
+        console.log('waiting for video');
+    };
+    if (c.searchObject.sys_id) {
+        getAppData(c.searchObject.sys_id);
+    }
     $rootScope.$on('showAppDetail', function(event, data) {
-        $rootScope.showDetail = true;
-        console.log('sush');
-        console.log(data); // 'Broadcast!'
+
+        getAppData(data);
         //c.showDetails = true;
 
     });
+
+
+
+    function getAppData(sysID) {
+        $rootScope.showDetail = true;
+        c.server.get({ action: 'getAppData', sysid: sysID }).then(function(response) {
+            console.log(response);
+            c.data.appData = response.data.appData;
+            c.data.appArtifacts = response.data.appArtifacts;
+            c.data.appRepos = response.data.appRepos;
+            c.centerImage = c.data.appData.screenshot.display_value;
+
+            var obj = {};
+            obj.head = c.data.appData.name.display_value;
+            obj.description = c.data.appData.description.display_value;
+            obj.background_gradient1 = c.data.appData.app_gradient_1.display_value;
+            obj.background_gradient2 = c.data.appData.app_gradient_2.display_value;
+            $rootScope.$broadcast('switchLayer', obj);
+
+        });
+    }
+    c.showAppTour = function() {
+
+        c.tourVideo.play();
+        c.showVideo = true;
+        c.showLive = false;
+    }
+
+    c.showLiveApp = function() {
+        c.tourVideo.pause();
+        c.showVideo = false;
+        c.showLive = true;
+    }
+    c.showDevDetails = function(type, devtype) {
+        //debugger;
+        c.displayDevDetails = true;
+        if (type == 'explainKeyTerms') {
+            c.devtype = devtype;
+            c.detailType = type;
+            c.displayData = c.data.appArtifacts[devtype];
+            c.bgGradient = {};
+            c.bgGradient.background_gradient1 = c.displayData[0].background_gradient1.display_value;
+            c.bgGradient.background_gradient2 = c.displayData[0].background_gradient2.display_value;
+            c.displayGif = c.displayData[0].dev_experience.display_value;
+            c.displayStatic = c.displayData[0].app_experience.display_value;
+            var obj = {};
+            obj.head = c.displayData[0].heading.display_value;
+            obj.description = c.displayData[0].text.display_value;
+            obj.background_gradient1 = c.displayData[0].background_gradient1.display_value;
+            obj.background_gradient2 = c.displayData[0].background_gradient2.display_value;
+            $rootScope.$broadcast('switchLayer', obj);
+        } else if (type == 'appRelatedStuff') {
+            c.appRelatedType = devtype;
+            c.detailType = type;
+            c.bgGradient = {};
+            c.bgGradient.background_gradient1 = "#4a4a4a";
+            c.bgGradient.background_gradient2 = "#333232";
+            if (devtype == 'architecture') {
+                c.architectureImage = c.data.appData.architecture_image.display_value;
+                var obj = {};
+                obj.head = c.data.appData.architecture_heading.display_value;
+                obj.description = c.data.appData.architecture_text.display_value;
+                obj.background_gradient1 = c.bgGradient.background_gradient1;
+                obj.background_gradient2 = c.bgGradient.background_gradient2;
+                $rootScope.$broadcast('switchLayer', obj);
+
+            }
+            if (devtype == 'repositories') {
+
+                var obj = {};
+                obj.head = c.data.appData.repositories_heading.display_value;
+                obj.description = c.data.appData.repositories_text.display_value;
+                obj.background_gradient1 = c.bgGradient.background_gradient1;
+                obj.background_gradient2 = c.bgGradient.background_gradient2;
+                $rootScope.$broadcast('switchLayer', obj);
+
+            }
+
+        }
+
+        function changeTheBottomData(data) {
+
+        }
+
+        console.log(c.displayData);
+
+        //'explainKeyTerms', 'automation'
+    }
+    c.switchImage = function(eachData) {
+        c.displayGif = eachData.dev_experience.display_value;
+        c.displayStatic = eachData.app_experience.display_value;
+        var obj = {};
+        obj.head = eachData.heading.display_value;
+        obj.description = eachData.text.display_value;
+        obj.background_gradient1 = eachData.background_gradient1.display_value;
+        obj.background_gradient2 = eachData.background_gradient2.display_value;
+        $rootScope.$broadcast('switchLayer', obj);
+    }
+
+    c.startMobileSlideShow = function() {
+        c.tourVideo.pause();
+        c.slideIndex = 0;
+        c.developSlideShow = true;
+        c.showDevDetails(c.mobileSlideShow[c.slideIndex].type, c.mobileSlideShow[c.slideIndex].devtype);
+    }
+    c.nextSlide = function() {
+        //debugger;
+        c.showDevDetails(c.mobileSlideShow[++c.slideIndex].type, c.mobileSlideShow[c.slideIndex].devtype);
+    }
+
+    c.previousSlide = function() {
+        c.showDevDetails(c.mobileSlideShow[--c.slideIndex].type, c.mobileSlideShow[c.slideIndex].devtype);
+
+    }
 }]]></client_script>
         <controller_as>c</controller_as>
         <css>.app-details {
     height: 100%;
+    .flex-these {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @media screen and (max-width: 414px) {
+            padding: 10px;
+        }
+    }
+    .main-div {
+        height: 85%;
+        position: relative;
+        .image-switcher-arrows {
+            position: absolute;
+            width: 100%;
+            display: flex;
+            z-index: 1400;
+            align-items: center;
+            justify-content: space-between;
+            bottom: -2%;
+            img {
+                padding: 20px;
+                &amp;.disabled {
+                    pointer-events: none;
+                    opacity: .2;
+                }
+            }
+            img.rotate {
+                -ms-transform: rotate(180deg);
+                /* IE 9 */
+                -webkit-transform: rotate(180deg);
+                /* Chrome, Safari, Opera */
+                transform: rotate(180deg);
+            }
+        }
+        .app-related-data {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .architecture-image {
+                width: 100%;
+                height: 95%;
+                position: relative;
+                img {
+                    height: 95%;
+                    @media screen and (max-width: 1220px) {
+                        width: 100%;
+                        height: auto;
+                    }
+                }
+                .divider {
+                    position: absolute;
+                    bottom: 0px;
+                    left: 0px;
+                    width: 100%;
+                    text-align: left;
+                    border-top: 2px solid #4a4a4a;
+                    padding: 10px;
+                    @media screen and (max-width: 1220px) {
+                        bottom: -41px;
+                    }
+                    a {
+                        color: #979797;
+                        margin: 10px;
+                        img {
+                            width: 32px;
+                        }
+                    }
+                }
+            }
+            .repo-holder {
+                padding: 20px;
+                font-size: 22px;
+                @media screen and (max-width: 414px) {
+                    font-size: 14px;
+                }
+                .divider {
+                    position: absolute;
+                    bottom: 0px;
+                    left: 0px;
+                    width: 100%;
+                    text-align: left;
+                    border-top: 2px solid #4a4a4a;
+                    padding: 10px;
+                    a {
+                        color: #979797;
+                    }
+                }
+                .each-repo {
+                    padding: 10px;
+                    a {
+                        color: #4990e2;
+                    }
+                }
+            }
+        }
+    }
+    .three-column {
+        height: 100%;
+        padding: 20px;
+    }
+    .dev-details-div {
+        width: 90%;
+        display: flex;
+        //padding-right: 5px;
+        //height: 100%;
+        // height: 90%;
+        height: 65%;
+        align-items: center;
+        justify-content: space-around;
+        position: relative;
+        @media screen and (max-height: 1150px) {
+            //height: 25%;
+            height: 75%;
+        }
+        @media screen and (max-height: 1000px) {
+            //height: 25%;
+            height: 84%;
+        }
+        @media screen and (max-height: 960px) {
+            //height: 25%;
+            height: 90%;
+        }
+        @media screen and (max-height: 768px) {
+            //height: 25%;
+            width: 100%;
+            height: 80%;
+        }
+        .mobile-detail-viewer {
+            height: 100%;
+            width: 100%;
+            img {
+                width: 100%;
+            }
+        }
+        .collapse-icon {
+            position: absolute;
+            left: -40px;
+            color: #fff;
+        }
+        .detail-viewer {
+            height: 100%;
+            background: #000;
+            //border-radius: 9px;
+            color: #fff;
+            right: 25%;
+            padding: 0px;
+            //display: flex;
+            //align-items: center;
+            //justify-content: space-between;
+            position: absolute;
+            width: 0px;
+            overflow: hidden;
+            z-index: 1201;
+            transition: all 1s;
+            &amp;.expand-details {
+                width: 75%;
+                padding: 30px;
+                @media screen and (max-width: 1300px) {
+                    //height: 25%;
+                    width: 65%;
+                    right: 30%;
+                }
+                @media screen and (max-width: 1050px) {
+                    //height: 25%;
+                    width: 65%;
+                    right: 35%;
+                }
+                //overflow: visible;
+            }
+            .category-viewer {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+                .gif {
+                    width: 75%;
+                    padding: 10px;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    img {
+                        height: 100%;
+                        @media screen and (max-width: 1300px) {
+                            //height: 25%;
+                            height: auto;
+                            width: 100%;
+                        }
+                    }
+                }
+                .static {
+                    //width: 300px;
+                    padding: 10px;
+                    height: 100%;
+                    img {
+                        height: 90%;
+                    }
+                    .page-buttons {
+                        padding: 10px;
+                        button {
+                            margin: 10px;
+                            border: 0px;
+                            color: #fff;
+                            padding: 10px 20px;
+                        }
+                    }
+                }
+            }
+            // img {
+            //     height: 90%;
+            //     width: 100%;
+            // }
+        }
+    }
+    .col-btns {
+        text-transform: uppercase;
+        width: 200px;
+        background: linear-gradient(to bottom, #4a4a4a, #333232);
+        color: #fff;
+        margin-top: 20px;
+        font-size: 22px;
+        @media screen and (max-height: 900px) {
+            font-size: 18px;
+        }
+        @media screen and (max-width: 1050px) {
+            width: 175px;
+            font-size: 20px;
+        }
+        @media screen and (max-width: 414px) {
+            width: 110px;
+            font-size: 12px;
+            margin-top: 8px;
+        }
+        &amp;:focus {
+            background: #d8d8d8;
+            color: #000;
+        }
+    }
+    .col-btn-insight {
+        background-image: linear-gradient(to bottom, #722779, #511357);
+    }
+    .col-btn-integration {
+        background-image: linear-gradient(to bottom, #006719, #014a13);
+    }
+    .col-btn-automation {
+        background-image: linear-gradient(to bottom, #1d5083, #08325c);
+    }
+    .col-btn-consumerization {
+        background-image: linear-gradient(to bottom, #ee3e3f, #b02324);
+    }
+    .dev-center {
+        width: 200px;
+        //margin: 0 4%;
+        //margin: 0px 70px;
+        background: inherit;
+        p {
+            margin-bottom: 0px;
+            text-transform: uppercase;
+            color: #B3B3B3;
+            font-size: 22px;
+            @media screen and (max-height: 900px) {
+                font-size: 18px;
+            }
+        }
+    }
+    // .detail-viewer {
+    //     height: 100%;
+    // }
+    .app-view {
+        //height: 100%;
+        height: 130%;
+        margin: 20px;
+        //width: 330px;
+        transition: all 2s;
+        @media screen and (max-width: 1200px) {
+            //height: 25%;
+            height: 120%;
+            min-width: 300px;
+        }
+        @media screen and (max-width: 1050px) {
+            //height: 25%;
+            height: 100%;
+            min-width: 250px;
+        }
+        @media screen and (max-width: 768px) {
+            //height: 25%;
+            transition: all 0s;
+        }
+        @media screen and (max-width: 414px) {
+            //height: 25%;
+            min-width: auto;
+            margin: 0px;
+            height: 120%;
+        }
+        &amp;.reduce-height {
+            height: 75%;
+            min-width: 200px;
+        }
+        .video-player {
+            // height: 100%;
+            // width: 55%;
+            // padding: 20px;
+            // border: 2px solid;
+            // border-radius: 10px;
+            height: 100%;
+            min-width: 100%;
+            //width: 375px;
+            padding: 30px 15px;
+            border: 2px solid #4a4a4a;
+            border-radius: 10px;
+            @media screen and (max-width: 414px) {
+                //height: 25%;
+                padding: 10px;
+                min-width: 165px;
+            }
+        }
+        #live-app {
+            height: 100%;
+            width: 375px;
+            padding: 30px 20px;
+            border: 2px solid;
+            border-radius: 10px
+        }
+        .app-image {
+            height: 100%;
+            width: 100%;
+            img {
+                height: 100%;
+                border: 2px solid #4a4a4a;
+                padding: 30px 15px;
+                border-radius: 10px;
+                @media screen and (max-width: 414px) {
+                    //height: 25%;
+                    padding: 10px;
+                }
+            }
+        }
+    }
+    .stock-image {
+        width: 200px;
+        //width: 20%;
+        //margin: 0 8%;
+        @media screen and (max-width: 1050px) {
+            width: 175px;
+        }
+        @media screen and (max-width: 414px) {
+            width: 100px;
+        }
+        .avatar-name-image {
+            width: 100%;
+            height: 255px;
+            @media screen and (max-width: 768px) {
+                height: 210px;
+            }
+            @media screen and (max-width: 414px) {
+                height: 125px;
+            }
+            //display: flex;
+            //justify-content: center;
+            .name {
+                color: #c9c9c9;
+                text-align: center;
+                font-size: 22px;
+                font-style: italic;
+                @media screen and (max-width: 414px) {
+                    font-size: 14px;
+                }
+            }
+            .exp {
+                margin: 5px;
+                width: 200px;
+                height: 200px;
+                // border: 2px solid #D8D8D8;
+                border-radius: 50%;
+                line-height: 80px;
+                display: flex;
+                z-index: 1200;
+                top: 0px;
+                align-items: center;
+                position: relative;
+                justify-content: center;
+                background-position: center;
+                background-size: cover;
+                @media screen and (max-width: 1050px) {
+                    width: 170px;
+                    height: 170px;
+                }
+                @media screen and (max-width: 414px) {
+                    width: 100px;
+                    height: 100px;
+                }
+            }
+        }
+    }
 }</css>
         <data_table>sp_instance</data_table>
         <demo_data/>
@@ -31,9 +573,64 @@
         <public>false</public>
         <roles/>
         <script><![CDATA[(function() {
-  /* populate the 'data' object */
-  /* e.g., data.table = $sp.getValue('table'); */
+    /* populate the 'data' object */
+    /* e.g., data.table = $sp.getValue('table'); */
+    if (input) {
+        if (input.action == 'getAppData') {
+            console.log(input.sysid);
+            data.appData = {};
+            data.appArtifacts = {};
+            data.appArtifacts.experience = [];
+            data.appArtifacts.automation = [];
+            data.appArtifacts.integration = [];
+            data.appArtifacts.insight = [];
+            data.appRepos = [];
+            var appgr = new GlideRecord('x_snc_city_app');
+            appgr.addQuery('sys_id', input.sysid);
+            appgr.addQuery('active', true);
+            appgr.query();
+            if (appgr.next()) {
+                var obj = {};
+                $sp.getRecordElements(obj, appgr, 'app_gradient_2,app_gradient_1,name,sys_id,flag_text,overview_video,description,screenshot,home_page_icon,architecture_image,architecture_heading,architecture_text,repositories_heading,repositories_text,overview_video,repo_help');
+                data.appData = obj;
 
+            }
+
+            var artifactGr = new GlideRecord('x_snc_city_app_artifact');
+            artifactGr.addQuery('app', input.sysid);
+            artifactGr.addQuery('active', true);
+            artifactGr.query();
+            while (artifactGr.next()) {
+                var obj = {};
+                $sp.getRecordElements(obj, artifactGr, 'capability,type,level,heading,text,app_experience,dev_experience,background_gradient1,background_gradient2');
+
+                if (obj.type.display_value == 'Experience') {
+                    data.appArtifacts.experience.push(obj);
+                }
+                if (obj.type.display_value == 'Automation') {
+                    data.appArtifacts.automation.push(obj);
+                }
+                if (obj.type.display_value == 'Integration') {
+                    data.appArtifacts.integration.push(obj);
+                }
+                if (obj.type.display_value == 'Insight') {
+                    data.appArtifacts.insight.push(obj);
+                }
+
+            }
+            var appRepos = new GlideRecord('x_snc_city_app_repo');
+            appRepos.addQuery('app', input.sysid);
+            appRepos.addQuery('active', true);
+            appRepos.query();
+            while (appRepos.next()) {
+                var obj = {};
+                $sp.getRecordElements(obj, appRepos, 'short_description,version,url');
+                data.appRepos.push(obj);
+            }
+
+
+        }
+    }
 })();]]></script>
         <servicenow>false</servicenow>
         <sys_class_name>sp_widget</sys_class_name>
@@ -41,7 +638,7 @@
         <sys_created_on>2017-06-28 20:36:13</sys_created_on>
         <sys_customer_update>true</sys_customer_update>
         <sys_id>58d22d87db2fb20087c1fd441d961904</sys_id>
-        <sys_mod_count>18</sys_mod_count>
+        <sys_mod_count>715</sys_mod_count>
         <sys_name>COLS App Details</sys_name>
         <sys_package display_value="City" source="x_snc_city">75d4ebaedb033e00c3beffa31d9619d8</sys_package>
         <sys_policy/>
@@ -49,10 +646,234 @@
         <sys_scope display_value="City">75d4ebaedb033e00c3beffa31d9619d8</sys_scope>
         <sys_update_name>sp_widget_58d22d87db2fb20087c1fd441d961904</sys_update_name>
         <sys_updated_by>sush.chandrashekar</sys_updated_by>
-        <sys_updated_on>2017-06-30 01:43:06</sys_updated_on>
+        <sys_updated_on>2017-07-14 19:48:14</sys_updated_on>
         <template><![CDATA[<div class="app-details">
-    <!-- your widget template -->
-    <img src="appdetailtest.png" />
+
+    <div class="main-div">
+        <div class="flex-these three-column ">
+            <div class="dev-details-div">
+                <!--stock image -->
+                <div class="stock-image" ng-show="!c.developSlideShow">
+                    <div class="avatar-name-image">
+                        <div class="exp" ng-style="{'background-image':'url('+c.data.appData.home_page_icon.display_value+')'}">
+                            <!--<img ng-src={{c.data.appData.home_page_icon.display_value}}/>-->
+                        </div>
+                        <div class="name">
+                            <p>Shiela & Tim</p>
+                        </div>
+                    </div>
+
+                    <button class="col-btns btn" ng-click="c.showAppTour()">APP TOUR</button>
+                    <button class="col-btns btn" ng-click="c.showLiveApp()">TRY LIVE</button>
+                    <button class="col-btns btn visible-xs" ng-click="c.startMobileSlideShow()">DEVelop</button>
+                </div>
+                <!-- app view -->
+                <div class="app-view" ng-class="{'reduce-height':c.displayDevDetails}" ng-show="!c.developSlideShow">
+                    <!--<source src="https://servicenow.box.com/shared/static/jqv05jhlyuujfzvad3o8fa2sjzeootb3.mp4" type="video/mp4">-->
+                    <div ng-show="!c.showVideo && !c.showLive" class="app-image">
+                        <img src="{{c.centerImage}}" />
+                    </div>
+                    <!--<video class="video-player" controls ng-show="c.showVideo">
+                      <source ng-src="{{c.data.appData.overview_video.display_value | trustUrl}}" type="video/mp4">
+
+                      Your browser does not support HTML5 video.
+                     </video>-->
+
+                    <video id="tourVideo" ng-show="c.showVideo && !c.showLive" class="video-player" controls="controls" name="Video Name" src="{{c.data.appData.overview_video.display_value | trustUrl}}"></video>
+
+
+
+                    <iframe id="live-app" ng-show="c.showLive" src="https://cityoflightspeeddev.service-now.com/guide" name="myIframe"></iframe>
+                </div>
+                <!--detail viewer-->
+                <div class="detail-viewer hidden-xs" ng-class="{'expand-details':c.displayDevDetails}" ng-style="{'background-image': 'linear-gradient(to bottom, '+c.bgGradient.background_gradient1 +','+ c.bgGradient.background_gradient2+')'}">
+                    <div class="category-viewer " ng-show="c.detailType == 'explainKeyTerms'">
+                        <div class="static">
+                            <img src="{{c.displayStatic}}" />
+                            <div class="page-buttons" ng-show="c.displayData.length > 1">
+                                <button ng-style="{'background-image': 'linear-gradient(to bottom, '+c.bgGradient.background_gradient1 +','+ c.bgGradient.background_gradient2+')'}" ng-click="c.switchImage(eachData)" ng-repeat="eachData in c.displayData track by $index" class="btn btn-default">{{$index+1}}</button>
+                            </div>
+                        </div>
+                        <div class="gif"><img src="{{c.displayGif}}" /></div>
+
+                    </div>
+                    <div class="app-related-data" ng-show="c.detailType == 'appRelatedStuff'">
+                        <div class="architecture-image" ng-show="c.appRelatedType == 'architecture'">
+
+                            <img src="{{c.architectureImage}}" />
+
+                            <div class="divider">
+                                <a ng-href="/city?{{c.data.appData.repo_help.display_value}}" target="_blank">
+                                    <img src="download.svg" />
+                                </a>
+                                <a ng-href="/{{c.architectureImage}}" target="_blank">
+                                    <img src="fullscreen.svg" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="repo-holder" ng-show="c.appRelatedType == 'repositories'">
+                            <div class="each-repo" ng-repeat="repo in  c.data.appRepos">
+                                <a ng-href="{{repo.url.display_value}}" target="_blank">{{repo.url.display_value}}</a> | <span>{{repo.version.display_value}}</span>
+                            </div>
+                            <div class="divider">
+                                <a ng-href="/city?{{c.data.appData.repo_help.display_value}}" target="_blank">HELP</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="visible-xs mobile-detail-viewer" ng-show="c.developSlideShow">
+                    <img ng-show="c.detailType == 'explainKeyTerms'" src="{{c.displayGif}}" />
+                    <div class="app-related-data" ng-show="c.detailType == 'appRelatedStuff'">
+                        <div class="architecture-image" ng-show="c.appRelatedType == 'architecture'">
+                            <img src="{{c.architectureImage}}" />
+
+                        </div>
+                        <div class="repo-holder" ng-show="c.appRelatedType == 'repositories'">
+                            <div class="each-repo" ng-repeat="repo in  c.data.appRepos">
+                                <a ng-href="{{repo.url.display_value}}" target="_blank">{{repo.url.display_value}}</a> | <span>{{repo.version.display_value}}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!--<i ng-show="c.displayDevDetails" class="fa fa-2x fa-chevron-right collapse-icon hidden-xs" aria-hidden="true" ng-click="c.displayDevDetails = false;"></i>-->
+                <img ng-show="c.displayDevDetails" class="collapse-icon hidden-xs" aria-hidden="true" ng-click="c.displayDevDetails = false;" src="back-icon.png" />
+
+                <div class="dev-center hidden-xs">
+                    <p>develop</p>
+                    <button class="col-btns btn" ng-click="c.showDevDetails('appRelatedStuff', 'architecture')">architecture</button>
+                    <button class="col-btns btn" ng-click="c.showDevDetails('appRelatedStuff', 'repositories')">repositories</button>
+                    <button class="col-btns  col-btn-consumerization btn" ng-click="c.showDevDetails('explainKeyTerms', 'experience')">Experience</button>
+                    <button class="col-btns col-btn-automation btn" ng-click="c.showDevDetails('explainKeyTerms', 'automation')">automation</button>
+                    <button class="col-btns col-btn-integration btn" ng-click="c.showDevDetails('explainKeyTerms', 'integration')">integration</button>
+                    <button class="col-btns col-btn-insight btn" ng-click="c.showDevDetails('explainKeyTerms', 'insight')">Insight</button>
+                </div>
+            </div>
+
+        </div>
+        <div class="image-switcher-arrows" ng-show="c.developSlideShow">
+            <img ng-class="{'disabled': c.slideIndex == 0}" class="rotate" src="back-icon.png" ng-click="c.previousSlide()" />
+            <img ng-class="{'disabled': c.slideIndex == c.mobileSlideShow.length-1}" src="back-icon.png" ng-click="c.nextSlide()" />
+        </div>
+    </div>
+</div>
+
+<!--testing something-->
+<div class="app-details">
+
+    <div class="main-div">
+        <div class="flex-these three-column ">
+            <div class="dev-details-div">
+                <!--stock image -->
+                <div class="stock-image" ng-show="!c.developSlideShow">
+                    <div class="avatar-name-image">
+                        <div class="exp" ng-style="{'background-image':'url('+c.data.appData.home_page_icon.display_value+')'}">
+                            <!--<img ng-src={{c.data.appData.home_page_icon.display_value}}/>-->
+                        </div>
+                        <div class="name">
+                            <p>Shiela & Tim</p>
+                        </div>
+                    </div>
+
+                    <button class="col-btns btn" ng-click="c.showAppTour()">APP TOUR</button>
+                    <button class="col-btns btn" ng-click="c.showLiveApp()">TRY LIVE</button>
+                    <button class="col-btns btn visible-xs" ng-click="c.startMobileSlideShow()">DEVelop</button>
+                </div>
+                <!-- app view -->
+                <div class="app-view" ng-class="{'reduce-height':c.displayDevDetails}" ng-show="!c.developSlideShow">
+                    <!--<source src="https://servicenow.box.com/shared/static/jqv05jhlyuujfzvad3o8fa2sjzeootb3.mp4" type="video/mp4">-->
+                    <div ng-show="!c.showVideo && !c.showLive" class="app-image">
+                        <img src="{{c.centerImage}}" />
+                    </div>
+                    <!--<video class="video-player" controls ng-show="c.showVideo">
+                      <source ng-src="{{c.data.appData.overview_video.display_value | trustUrl}}" type="video/mp4">
+
+                      Your browser does not support HTML5 video.
+                     </video>-->
+
+                    <video id="tourVideo" ng-show="c.showVideo && !c.showLive" class="video-player" controls="controls" name="Video Name" src="{{c.data.appData.overview_video.display_value | trustUrl}}"></video>
+
+
+
+                    <iframe id="live-app" ng-show="c.showLive" src="https://cityoflightspeeddev.service-now.com/guide" name="myIframe"></iframe>
+                </div>
+                <!--detail viewer-->
+                <div class="detail-viewer hidden-xs" ng-class="{'expand-details':c.displayDevDetails}" ng-style="{'background-image': 'linear-gradient(to bottom, '+c.bgGradient.background_gradient1 +','+ c.bgGradient.background_gradient2+')'}">
+                    <div class="category-viewer " ng-show="c.detailType == 'explainKeyTerms'">
+                        <div class="static">
+                            <img src="{{c.displayStatic}}" />
+                            <div class="page-buttons" ng-show="c.displayData.length > 1">
+                                <button ng-style="{'background-image': 'linear-gradient(to bottom, '+c.bgGradient.background_gradient1 +','+ c.bgGradient.background_gradient2+')'}" ng-click="c.switchImage(eachData)" ng-repeat="eachData in c.displayData track by $index" class="btn btn-default">{{$index+1}}</button>
+                            </div>
+                        </div>
+                        <div class="gif"><img src="{{c.displayGif}}" /></div>
+
+                    </div>
+                    <div class="app-related-data" ng-show="c.detailType == 'appRelatedStuff'">
+                        <div class="architecture-image" ng-show="c.appRelatedType == 'architecture'">
+
+                            <img src="{{c.architectureImage}}" />
+
+                            <div class="divider">
+                                <a ng-href="/city?{{c.data.appData.repo_help.display_value}}" target="_blank">
+                                    <img src="download.svg" />
+                                </a>
+                                <a ng-href="/{{c.architectureImage}}" target="_blank">
+                                    <img src="fullscreen.svg" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="repo-holder" ng-show="c.appRelatedType == 'repositories'">
+                            <div class="each-repo" ng-repeat="repo in  c.data.appRepos">
+                                <a ng-href="{{repo.url.display_value}}" target="_blank">{{repo.url.display_value}}</a> | <span>{{repo.version.display_value}}</span>
+                            </div>
+                            <div class="divider">
+                                <a ng-href="/city?{{c.data.appData.repo_help.display_value}}" target="_blank">HELP</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="visible-xs mobile-detail-viewer" ng-show="c.developSlideShow">
+                    <img ng-show="c.detailType == 'explainKeyTerms'" src="{{c.displayGif}}" />
+                    <div class="app-related-data" ng-show="c.detailType == 'appRelatedStuff'">
+                        <div class="architecture-image" ng-show="c.appRelatedType == 'architecture'">
+                            <img src="{{c.architectureImage}}" />
+
+                        </div>
+                        <div class="repo-holder" ng-show="c.appRelatedType == 'repositories'">
+                            <div class="each-repo" ng-repeat="repo in  c.data.appRepos">
+                                <a ng-href="{{repo.url.display_value}}" target="_blank">{{repo.url.display_value}}</a> | <span>{{repo.version.display_value}}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!--<i ng-show="c.displayDevDetails" class="fa fa-2x fa-chevron-right collapse-icon hidden-xs" aria-hidden="true" ng-click="c.displayDevDetails = false;"></i>-->
+                <img ng-show="c.displayDevDetails" class="collapse-icon hidden-xs" aria-hidden="true" ng-click="c.displayDevDetails = false;" src="back-icon.png" />
+
+                <div class="dev-center hidden-xs">
+                    <p>develop</p>
+                    <button class="col-btns btn" ng-click="c.showDevDetails('appRelatedStuff', 'architecture')">architecture</button>
+                    <button class="col-btns btn" ng-click="c.showDevDetails('appRelatedStuff', 'repositories')">repositories</button>
+                    <button class="col-btns  col-btn-consumerization btn" ng-click="c.showDevDetails('explainKeyTerms', 'experience')">Experience</button>
+                    <button class="col-btns col-btn-automation btn" ng-click="c.showDevDetails('explainKeyTerms', 'automation')">automation</button>
+                    <button class="col-btns col-btn-integration btn" ng-click="c.showDevDetails('explainKeyTerms', 'integration')">integration</button>
+                    <button class="col-btns col-btn-insight btn" ng-click="c.showDevDetails('explainKeyTerms', 'insight')">Insight</button>
+                </div>
+            </div>
+
+        </div>
+        <div class="image-switcher-arrows" ng-show="c.developSlideShow">
+            <img ng-class="{'disabled': c.slideIndex == 0}" class="rotate" src="back-icon.png" ng-click="c.previousSlide()" />
+            <img ng-class="{'disabled': c.slideIndex == c.mobileSlideShow.length-1}" src="back-icon.png" ng-click="c.nextSlide()" />
+        </div>
+    </div>
 </div>]]></template>
     </sp_widget>
 </record_update>

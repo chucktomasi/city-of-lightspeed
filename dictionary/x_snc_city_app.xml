@@ -2,12 +2,15 @@
 <database>
     <element label="Application" max_length="40" name="x_snc_city_app" type="collection">
         <element default="true" label="Active" max_length="40" name="active" type="boolean"/>
+        <element label="App Bubble Image" max_length="40" name="app_bubble_image" type="user_image"/>
+        <element label="App gradient 1" max_length="40" name="app_gradient_1" type="color"/>
+        <element label="App gradient 2" max_length="40" name="app_gradient_2" type="color"/>
         <element attributes="edge_encryption_enabled=true" label="Architecture heading" max_length="40" name="architecture_heading" type="string"/>
         <element attributes="pdf_cell_type=image" label="Architecture image" max_length="40" name="architecture_image" type="user_image"/>
         <element attributes="edge_encryption_enabled=true" label="Architecture text" max_length="1000" name="architecture_text" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="Automation heading" max_length="40" name="automation_heading" type="string"/>
         <element label="Automation text" max_length="1000" name="automation_text" type="string"/>
-        <element attributes="edge_encryption_enabled=true" label="Consumerization heading" max_length="40" name="consumerization_heading" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Experience heading" max_length="40" name="consumerization_heading" type="string"/>
         <element label="Consumerization text" max_length="1000" name="consumerization_text" type="string"/>
         <element label="Description" max_length="4000" name="description" type="string"/>
         <element label="Flag text" max_length="40" name="flag_text" type="string"/>
@@ -22,7 +25,7 @@
         <element attributes="edge_encryption_enabled=true" label="Repositories text" max_length="1000" name="repositories_text" type="string"/>
         <element attributes="edge_encryption_enabled=true" default="id=city_github" label="Repo help" max_length="40" name="repo_help" type="string"/>
         <element label="Screenshot" max_length="40" name="screenshot" type="user_image"/>
-        <element attributes="edge_encryption_enabled=true" label="Visibility heading" max_length="40" name="visibility_heading" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Insight heading" max_length="40" name="visibility_heading" type="string"/>
         <element label="Visibility text" max_length="1000" name="visibility_text" type="string"/>
     </element>
 </database>

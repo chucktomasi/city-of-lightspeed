@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_documentation element="background_gradient2" label="&#9; Background Gradient2" language="en" table="x_snc_city_app_artifact">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>background_gradient2</element>
+            <help/>
+            <hint/>
+            <label>	 Background Gradient2</label>
+            <language>en</language>
+            <name>x_snc_city_app_artifact</name>
+            <plural>	 Background Gradient2s</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>sush.chandrashekar</sys_created_by>
+            <sys_created_on>2017-07-11 18:18:49</sys_created_on>
+            <sys_customer_update>true</sys_customer_update>
+            <sys_id>8a104857db7b7a0087c1fd441d961952</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Background Gradient2</sys_name>
+            <sys_package display_value="City" source="x_snc_city">75d4ebaedb033e00c3beffa31d9619d8</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="City">75d4ebaedb033e00c3beffa31d9619d8</sys_scope>
+            <sys_update_name>sys_documentation_x_snc_city_app_artifact_background_gradient2_en</sys_update_name>
+            <sys_updated_by>sush.chandrashekar</sys_updated_by>
+            <sys_updated_on>2017-07-11 18:18:49</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

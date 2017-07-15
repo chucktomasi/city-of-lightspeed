@@ -8,7 +8,7 @@
         <sys_created_on>2017-06-28 17:24:33</sys_created_on>
         <sys_customer_update>true</sys_customer_update>
         <sys_id>e1d67803dbebb20087c1fd441d961990</sys_id>
-        <sys_mod_count>13</sys_mod_count>
+        <sys_mod_count>20</sys_mod_count>
         <sys_name>COLS-City-image-lightson</sys_name>
         <sys_package display_value="City" source="x_snc_city">75d4ebaedb033e00c3beffa31d9619d8</sys_package>
         <sys_policy/>
@@ -16,32 +16,57 @@
         <sys_scope display_value="City">75d4ebaedb033e00c3beffa31d9619d8</sys_scope>
         <sys_update_name>sp_ng_template_e1d67803dbebb20087c1fd441d961990</sys_update_name>
         <sys_updated_by>sush.chandrashekar</sys_updated_by>
-        <sys_updated_on>2017-06-28 22:51:37</sys_updated_on>
-        <template><![CDATA[<img src="{{c.initialimg}}" rwdimgmap alt="" usemap="#Map" />
-<map name="Map" id="Map" ng-click="c.changeImg('red')">
-    <area alt="" title="" href="javascript:void(0)" shape="poly" coords="821,1487,1001,1394,2411,2330" />
-    <area alt="" title="" href="javascript:void(0)" shape="poly" coords="2405,2324,2537,2261,1007,1394" />
-    <area alt="" title="" href="javascript:void(0)" shape="poly" coords="2540,2252,2396,2156,3842,1409" />
-    <area alt="" title="" href="javascript:void(0)" shape="poly" coords="4028,1502,3860,1409,2573,2240" />
-    <area alt="" title="" href="javascript:void(0)" shape="poly" coords="2405,2339,2426,2429,4040,1601" />
-    <area alt="" title="" href="javascript:void(0)" shape="poly" coords="4046,1604,4043,1523,2675,2213" />
-    <area alt="" title="" href="javascript:void(0)" shape="poly" coords="2399,2432,2396,2345,803,1583" />
-    <area alt="" title="" href="javascript:void(0)" shape="poly" coords="806,1499,803,1580,2357,2321" />
-    <area alt="" title="" href="javascript:void(0)" shape="poly" coords="807,4154,1008,4055,2406,4994" />
-    <area alt="" title="" href="javascript:void(0)" shape="poly" coords="2403,4994,2559,4907,1008,4052" />
-    <area alt="" title="" href="javascript:void(0)" shape="poly" coords="2565,4910,2403,4793,3849,4064" />
-    <area alt="" title="" href="javascript:void(0)" shape="poly" coords="4047,4166,3843,4061,2469,4973" />
-    <area alt="" title="" href="javascript:void(0)" shape="poly" coords="801,4157,798,4256,2412,5102" />
-    <area alt="" title="" href="javascript:void(0)" shape="poly" coords="2409,5099,2403,4997,798,4160" />
-    <area alt="" title="" href="javascript:void(0)" shape="poly" coords="2412,5105,2409,5003,4056,4274" />
-    <area alt="" title="" href="javascript:void(0)" shape="poly" coords="4050,4169,4053,4274,2571,4928" />
-    <area alt="" title="" href="javascript:void(0)" shape="poly" coords="798,3839,4044,3851,2409,4676" />
-    <area alt="" title="" href="javascript:void(0)" shape="poly" coords="804,3836,4047,3848,2436,2942" />
-    <area alt="" title="" href="javascript:void(0)" shape="poly" coords="267,390,1346,393,798,668,270,387,1347,392,813,92" />
-    <area alt="" title="" href="javascript:void(0)" shape="poly" coords="267,495,270,494,329,462,801,776" />
-    <area alt="" title="" href="javascript:void(0)" shape="poly" coords="801,777,849,744,332,464" />
-    <area alt="" title="" href="javascript:void(0)" shape="poly" coords="845,753,797,710,1286,465" />
-    <area alt="" title="" href="javascript:void(0)" shape="poly" coords="1349,500,1287,464,831,759" />
-</map>]]></template>
+        <sys_updated_on>2017-07-11 17:52:09</sys_updated_on>
+        <template><![CDATA[<img src="{{c.layer.image}}" rwdimgmap alt="" usemap="#Map" />
+<map name="Map" id="Map">
+    <span ng-click="c.layerClicked('100')">
+        <area alt="" title="" href="javascript:void(0)" shape="poly" coords="264,392,1350,393,805,669" />
+        <area alt="" title="" href="javascript:void(0)" shape="poly" coords="267,389,1345,392,811,90" />
+        <area alt="" title="" href="javascript:void(0)" shape="poly" coords="264,395,262,425,801,699" />
+        <area alt="" title="" href="javascript:void(0)" shape="poly" coords="802,671,802,704,273,392" />
+        <area alt="" title="" href="javascript:void(0)" shape="poly" coords="807,671,804,702,1353,425" />
+        <area alt="" title="" href="javascript:void(0)" shape="poly" coords="1353,396,1356,426,814,666" />
+        </span>
+        <span ng-click="c.layerClicked('200')">
+              <area alt="" title="" href="javascript:void(0)" shape="poly" coords="267,492,328,461,802,779" />
+        <area alt="" title="" href="javascript:void(0)" shape="poly" coords="804,779,868,749,337,465" />
+        <area alt="" title="" href="javascript:void(0)" shape="poly" coords="1350,500,1284,465,870,746" />
+        <area alt="" title="" href="javascript:void(0)" shape="poly" coords="865,744,799,710,1278,470" />
+        <area alt="" title="" href="javascript:void(0)" shape="poly" coords="267,494,267,531,802,815" />
+        <area alt="" title="" href="javascript:void(0)" shape="poly" coords="804,815,802,782,274,497" />
+        <area alt="" title="" href="javascript:void(0)" shape="poly" coords="805,812,802,785,1353,536" />
+        <area alt="" title="" href="javascript:void(0)" shape="poly" coords="1353,503,1350,536,804,785" />
+        </span>
+        <span ng-click="c.layerClicked('300')">
+           <area alt="" title="" href="javascript:void(0)" shape="poly" coords="270,600,331,569,802,888" />
+        <area alt="" title="" href="javascript:void(0)" shape="poly" coords="802,885,868,855,334,570" />
+        <area alt="" title="" href="javascript:void(0)" shape="poly" coords="871,855,804,818,1351,611" />
+        <area alt="" title="" href="javascript:void(0)" shape="poly" coords="1351,606,1290,573,807,816" />
+        <area alt="" title="" href="javascript:void(0)" shape="poly" coords="270,603,270,639,805,923" />
+        <area alt="" title="" href="javascript:void(0)" shape="poly" coords="801,891,802,920,274,603" />
+        <area alt="" title="" href="javascript:void(0)" shape="poly" coords="807,887,807,921,1351,647" />
+        <area alt="" title="" href="javascript:void(0)" shape="poly" coords="1354,612,1354,645,810,882" />
+        </span>
+        <span ng-click="c.layerClicked('400')">
+           <area alt="" title="" href="javascript:void(0)" shape="poly" coords="271,708,334,678,804,999" />
+        <area alt="" title="" href="javascript:void(0)" shape="poly" coords="804,1001,864,968,337,678" />
+        <area alt="" title="" href="javascript:void(0)" shape="poly" coords="867,969,796,927,1347,717" />
+        <area alt="" title="" href="javascript:void(0)" shape="poly" coords="1344,716,1285,684,810,921" />
+        <area alt="" title="" href="javascript:void(0)" shape="poly" coords="273,711,273,750,804,1032" />
+        <area alt="" title="" href="javascript:void(0)" shape="poly" coords="804,1004,805,1034,277,713" />
+        <area alt="" title="" href="javascript:void(0)" shape="poly" coords="807,1002,808,1035,1350,753" />
+        <area alt="" title="" href="javascript:void(0)" shape="poly" coords="1347,719,1351,756,810,1001" />
+        </span>
+        <span ng-click="c.layerClicked('500')">
+           <area alt="" title="" href="javascript:void(0)" shape="poly" coords="273,821,339,788,802,1110" />
+        <area alt="" title="" href="javascript:void(0)" shape="poly" coords="804,1109,879,1073,342,788" />
+        <area alt="" title="" href="javascript:void(0)" shape="poly" coords="883,1071,813,1037,1345,828" />
+        <area alt="" title="" href="javascript:void(0)" shape="poly" coords="1342,828,1279,797,819,1034" />
+        <area alt="" title="" href="javascript:void(0)" shape="poly" coords="271,825,273,860,801,1142" />
+        <area alt="" title="" href="javascript:void(0)" shape="poly" coords="804,1140,805,1118,276,824" />
+        <area alt="" title="" href="javascript:void(0)" shape="poly" coords="807,1145,808,1112,1345,833" />
+        <area alt="" title="" href="javascript:void(0)" shape="poly" coords="1347,869,1347,833,807,1140" />
+        </span>
+    </map>]]></template>
     </sp_ng_template>
 </record_update>

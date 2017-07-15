@@ -44,7 +44,7 @@
             <element>type</element>
             <hint/>
             <inactive>false</inactive>
-            <label>Visibility</label>
+            <label>Experience</label>
             <language>en</language>
             <name>x_snc_city_app_artifact</name>
             <sequence>2</sequence>
@@ -52,18 +52,18 @@
             <sys_created_on>2017-06-14 23:33:14</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>b4254aeadb9bb20087c1fd441d96191a</sys_id>
-            <sys_mod_count>0</sys_mod_count>
+            <sys_id>30254aeadb9bb20087c1fd441d96191b</sys_id>
+            <sys_mod_count>3</sys_mod_count>
             <sys_updated_by>chuck.tomasi</sys_updated_by>
-            <sys_updated_on>2017-06-14 23:33:14</sys_updated_on>
-            <value>Visibility</value>
+            <sys_updated_on>2017-07-10 22:14:22</sys_updated_on>
+            <value>Experience</value>
         </sys_choice>
         <sys_choice action="INSERT_OR_UPDATE">
             <dependent_value/>
             <element>type</element>
             <hint/>
             <inactive>false</inactive>
-            <label>Consumerization</label>
+            <label>Insight</label>
             <language>en</language>
             <name>x_snc_city_app_artifact</name>
             <sequence>3</sequence>
@@ -71,11 +71,11 @@
             <sys_created_on>2017-06-14 23:33:14</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>30254aeadb9bb20087c1fd441d96191b</sys_id>
-            <sys_mod_count>0</sys_mod_count>
+            <sys_id>b4254aeadb9bb20087c1fd441d96191a</sys_id>
+            <sys_mod_count>3</sys_mod_count>
             <sys_updated_by>chuck.tomasi</sys_updated_by>
-            <sys_updated_on>2017-06-14 23:33:14</sys_updated_on>
-            <value>Consumerization</value>
+            <sys_updated_on>2017-07-10 22:14:31</sys_updated_on>
+            <value>Insight</value>
         </sys_choice>
         <sys_choice_set action="INSERT_OR_UPDATE">
             <element>type</element>
@@ -85,7 +85,7 @@
             <sys_created_on>2017-06-14 23:33:14</sys_created_on>
             <sys_customer_update>false</sys_customer_update>
             <sys_id>f4254aeadb9bb20087c1fd441d961919</sys_id>
-            <sys_mod_count>1</sys_mod_count>
+            <sys_mod_count>7</sys_mod_count>
             <sys_name>type</sys_name>
             <sys_package display_value="City" source="x_snc_city">75d4ebaedb033e00c3beffa31d9619d8</sys_package>
             <sys_policy/>
@@ -93,7 +93,7 @@
             <sys_scope display_value="City">75d4ebaedb033e00c3beffa31d9619d8</sys_scope>
             <sys_update_name>sys_choice_x_snc_city_app_artifact_type</sys_update_name>
             <sys_updated_by>chuck.tomasi</sys_updated_by>
-            <sys_updated_on>2017-06-14 23:33:14</sys_updated_on>
+            <sys_updated_on>2017-07-10 22:14:31</sys_updated_on>
         </sys_choice_set>
     </sys_choice>
 </record_update>

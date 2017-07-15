@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="db_image">
+    <db_image action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category/>
+        <format>png</format>
+        <height>49</height>
+        <image/>
+        <name>back_to_city.png</name>
+        <size_bytes>2242</size_bytes>
+        <sys_class_name>db_image</sys_class_name>
+        <sys_created_by>sush.chandrashekar</sys_created_by>
+        <sys_created_on>2017-07-12 07:12:32</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>c0703a53dbbf7a0087c1fd441d9619a7</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>back_to_city.png</sys_name>
+        <sys_package display_value="City" source="x_snc_city">75d4ebaedb033e00c3beffa31d9619d8</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="City">75d4ebaedb033e00c3beffa31d9619d8</sys_scope>
+        <sys_update_name>db_image_c0703a53dbbf7a0087c1fd441d9619a7</sys_update_name>
+        <sys_updated_by>sush.chandrashekar</sys_updated_by>
+        <sys_updated_on>2017-07-12 07:12:45</sys_updated_on>
+        <thumbnail/>
+        <width>49</width>
+    </db_image>
+    <sys_attachment action="INSERT_OR_UPDATE">
+        <average_image_color>#42444c</average_image_color>
+        <compressed>true</compressed>
+        <content_type>image/png</content_type>
+        <file_name>image</file_name>
+        <image_height>49</image_height>
+        <image_width>49</image_width>
+        <size_bytes>2242</size_bytes>
+        <size_compressed>2265</size_compressed>
+        <sys_created_by>sush.chandrashekar</sys_created_by>
+        <sys_created_on>2017-07-12 07:12:45</sys_created_on>
+        <sys_id>8331fa13dbbf7a0087c1fd441d961976</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_updated_by>sush.chandrashekar</sys_updated_by>
+        <sys_updated_on>2017-07-12 07:12:46</sys_updated_on>
+        <table_name>ZZ_YYdb_image</table_name>
+        <table_sys_id>c0703a53dbbf7a0087c1fd441d9619a7</table_sys_id>
+    </sys_attachment>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>H4sIAAAAAAAAAA==</data>
+        <length>16</length>
+        <position>0</position>
+        <sys_attachment display_value="image" sys_id="8331fa13dbbf7a0087c1fd441d961976">8331fa13dbbf7a0087c1fd441d961976</sys_attachment>
+        <sys_created_by>sush.chandrashekar</sys_created_by>
+        <sys_created_on>2017-07-12 07:12:45</sys_created_on>
+        <sys_id>c331fa13dbbf7a0087c1fd441d961976</sys_id>
+    </sys_attachment_doc>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>AcIIPfeJUE5HDQoaCgAAAA1JSERSAAAAMQAAADEIBgAAAHOcQRwAAAABc1JHQgCuzhzpAAAIfElEQVRoBc1ZXWwc1RW+d352d3a9640dmzi/kCqUJCqoohIUiiIKqA8t9KEVBao+tBJqJd77WlV9Kn0oQkLioUICtaiitKitqFoUIUWRWipVlAjSpBCQkuBAosRrr727s7vz0+8b7xnNrj3eGdtNONLxuTNz7p3vu+eee+6stdoe0YNh0iwfhwOfNDt4nN/IS/P3VIp9R9UY3BM7Oi4JBNCkZTupo33GXm+GRBI4wZrUSmV2ouA4D4ah/qpWek+o1Rwo3qRCvUPpsAGYl3WoPglVOK91+Gav0zneal1ZQV9/oEJOCOF2NslDIgk+Aj41NWX7qvqoofW3laGPhaEqZXstQqiVq4LwRBCGr5pq+ZWFhYU++gohIUI7VrKSoB9nXWberu3Y93XTtH6Ct9w29i1jHDD4Wd/3ftpsXHwdrkKGkZHobDjCOBJ8LsrZt+v1PYeUaT+Hqbxnw5E38zAM/678/lOLi/MfoLuQGRsVAksTAc/Zt6DFan3fA4ZlvwYCt6Z12tJ9rfcpw/yOXai+23ObFzFWpuWURmKUQGly54EfGob1PAaubAno+M6OYZjfKpZrzW576dSAyIZk0kjI+mcESpPT+3+ktflztNP8x0PL52Fih3uo6NQWu52ISDI31hBaDxSjIEuoNDm15yFtFJ67jgRiupi4Y5ZdebvXbV7AzSSR2IcNAk6KECC5Yq2267BRcP6Gdj3pdJ3bi0Gv87Vm89OzeK8L5TY8RIgznhQhYeOmo+3Ss7A3kgCx1Qc4WIOIi5iHJj+5nIQA88Cp1nc/bJjWU2hvWhynpI7dd5faPTer5i9dViGq4WZEa73XLpTP9Nzlc+gvkYiHSpKQPMDpwanapfqv4DUde+ZskMCT339M3XH7YXXroYNqbteMeu/0+5smgp3xiA67L3uex/ohyymaFSEhUYiWUbl20+NIqidy4o7dhcAcIiAyMzO9VSLThlH4uOsun8aYHpREIpGcEBJRUTO09Yg45LXrEZAxjhw+pL772DeVYchr5Uk2i+VNXEUocca5kYwEo1AqFCZmbGfiZwNHmOwySoA58Oof/qKuXmuomw/sjQbaUkQMPRd43ku+32tjsPiwSBKMAi1JlCvVnd/QhvUw2rkkjcDb75xW5z48r2zb2g4iFg6dZ7Gk/gtwcW4kSRTwoFwq73hSa+NoHgYbEZBxto+IXkEVP45xe9AoN0hCdiWutYrj1L+HA95+tDNJFgIyUBqRd9/jxGYTfFg13M7Sn+DdhUYkJMPiJRVqPZNtuFWve+6+U8kuJDnAJUQhwQfuv1fd++U742T+6xsn1ImT/1ztjL9M9qNHsh+KB/i49GUVRVkuOxNvWtpQO7MdgFdxuC5PAjgzD5I4SYB1QggevGW/+s1v/6iCIFAkQmEhpLTbnchm+RPhW92dZBXhI3GVEUt6FTpb33nwX4BEppnlcwcPqMbiklpYWIz6jC4xGeg/Zz6IifDent27okfzlz4VlwxW9xevfvQlOF6BLkPdeK/FxaAd8EEu+fCj82MJcMDROkHw+QhwlAifrB7eQHCGRWNVXBu+lf1qNAJcYr/7/etrcmArBW+AjyRikXUVffzgbrnkTD7IA1fskbGxHgEWum2uE0y+c9hi/wxYLHjcoXzJcJJgnagUS7W7tGF8Hu3MshEBGSRte817KAwD/99dt/kmxuVvVlGtkEjQkoRjF0p1wyzcj3YmyUJABkojkqdO+F7n5V63xT08jgRzgsdZngh5FvHc9tJbsGSYSTaqE+sNsMU60RvgY5GT74pQEptEeLPved2VMPD4K0MmSasTG3UeJZK1ThAX8WHs5G9S8Q9jzAkHOgmdrVRnH7WLlR+jnUlG60SmTnDKWyf63dbTreUrr6Ara8QSlFXS41ZFZU7w7MSCN21Z1tzE5N4XcIbah+vPhoThxZWlj3+AL7tPAIhlgPUs2p1Gc4K54MKx3esuv4j2Z0aIh7gAiOcc4lyTEwQb5QQsnVrtlWsng8A/wwc3WoiDeICjBSU+yYkIWjKxuUMx6xkiMl7ptRvP0EJvpCRxyLYaHcEBauiHAoKU/GCb5EzP6yFsxiXLLn1lcI/Prqf42FKfxvfDO3hpA9qEkkj8VYd26m+rJEQihtfvNEy76Jmm/UV2uJ7S77df7KxcfQPvXIByN+KqkI+hKAq4XkOC4JMSkcHWdsG0Cl3TLHwBD2UJJv22u+33e62XWs0rr2FgEuAZn7tRtKXCcumnksCzSOgQO6GtQeQ8DoYXLLuIiGgeUf5PErZwwPslEvk4XkACsoxIgLvSEAFcr4kE74kIEbHK67tXQ79/CsvrFvyYMC2O22WDwHvfXbn2C7fTPIUxSYDKPOCuFNUE2MwkZFkJAXaM1Pf7+LWh+Q+QmLeswn4URBbIrUkYXMLJ9IVW8/KvMf48BktGIElA8Ay9T8AO3cQF70f5AMsjCat5GUrANSiPJ1XTNKtFZ8d9tl26W5v2bbiX57O2j6ie7ffdt7qdxknf97nmqUxgzj7b622pJDIkaSTolCQSH9Vxn//umoCSEC2v8S8qu1oq1+4wreJRQ5tTiNAkvktA1gD5oB0GwRI+aJaC0F/wve5pt908FQR9AuVa52xz5+E1rRS10SW0hgB8I6C0aSJEaEmEM82o8LDIyFAjErD8sYHPmPSMHv2lvywDngpYqJigBMjqKyQ461Re85lUZem7LgH4jSVBHwrBRHUDNkmGoAlelNckSqUf+7AvATCn5GhDgEKCRKi8ToKXPEwFD/9I+IKsIrNKS4BUzjgBc/YFPO24SJCEKKPCNiNEktSxsw+fWPKQkE5JMpxpITRqJQrSLxkNAZu0nPlc4GXgzZBI9k0SYluAixVfsUIkaZPA2c4tWyGRfJmMk2bpKwDTbHK8XO3/AbTKrc+R3IksAAAAAElFTkSuQmCCSLGnBsIIAAA=</data>
+        <length>3008</length>
+        <position>1</position>
+        <sys_attachment display_value="image" sys_id="8331fa13dbbf7a0087c1fd441d961976">8331fa13dbbf7a0087c1fd441d961976</sys_attachment>
+        <sys_created_by>sush.chandrashekar</sys_created_by>
+        <sys_created_on>2017-07-12 07:12:45</sys_created_on>
+        <sys_id>4731fa13dbbf7a0087c1fd441d961976</sys_id>
+    </sys_attachment_doc>
+</record_update>

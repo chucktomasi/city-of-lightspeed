@@ -5,55 +5,41 @@
             <element>app_experience</element>
             <position>0</position>
             <sys_created_by>chuck.tomasi</sys_created_by>
-            <sys_created_on>2017-06-27 20:14:58</sys_created_on>
-            <sys_id>8b641832dbaf7200c3beffa31d961980</sys_id>
+            <sys_created_on>2017-07-06 18:14:25</sys_created_on>
+            <sys_id>c92fc269db7fb600c3beffa31d96196b</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="Images" display_value="Images" name="x_snc_city_app_artifact" sys_domain="global" view="Default view">2c1210fedb6f7200c3beffa31d9619ea</sys_ui_section>
             <sys_updated_by>chuck.tomasi</sys_updated_by>
-            <sys_updated_on>2017-06-27 20:14:58</sys_updated_on>
-            <sys_user/>
-            <type/>
-        </sys_ui_element>
-        <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>animated_gif</element>
-            <position>1</position>
-            <sys_created_by>chuck.tomasi</sys_created_by>
-            <sys_created_on>2017-06-27 20:14:58</sys_created_on>
-            <sys_id>0f641832dbaf7200c3beffa31d961980</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_ui_formatter/>
-            <sys_ui_section caption="Images" display_value="Images" name="x_snc_city_app_artifact" sys_domain="global" view="Default view">2c1210fedb6f7200c3beffa31d9619ea</sys_ui_section>
-            <sys_updated_by>chuck.tomasi</sys_updated_by>
-            <sys_updated_on>2017-06-27 20:14:58</sys_updated_on>
+            <sys_updated_on>2017-07-06 18:14:25</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>.split</element>
-            <position>2</position>
+            <position>1</position>
             <sys_created_by>chuck.tomasi</sys_created_by>
-            <sys_created_on>2017-06-27 20:14:58</sys_created_on>
-            <sys_id>8f641832dbaf7200c3beffa31d961980</sys_id>
+            <sys_created_on>2017-07-06 18:14:25</sys_created_on>
+            <sys_id>812fc269db7fb600c3beffa31d96196c</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="Images" display_value="Images" name="x_snc_city_app_artifact" sys_domain="global" view="Default view">2c1210fedb6f7200c3beffa31d9619ea</sys_ui_section>
             <sys_updated_by>chuck.tomasi</sys_updated_by>
-            <sys_updated_on>2017-06-27 20:14:58</sys_updated_on>
+            <sys_updated_on>2017-07-06 18:14:25</sys_updated_on>
             <sys_user/>
             <type>.split</type>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>dev_experience</element>
-            <position>3</position>
+            <position>2</position>
             <sys_created_by>chuck.tomasi</sys_created_by>
-            <sys_created_on>2017-06-27 20:14:58</sys_created_on>
-            <sys_id>03641832dbaf7200c3beffa31d961981</sys_id>
+            <sys_created_on>2017-07-06 18:14:25</sys_created_on>
+            <sys_id>052fc269db7fb600c3beffa31d96196c</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="Images" display_value="Images" name="x_snc_city_app_artifact" sys_domain="global" view="Default view">2c1210fedb6f7200c3beffa31d9619ea</sys_ui_section>
             <sys_updated_by>chuck.tomasi</sys_updated_by>
-            <sys_updated_on>2017-06-27 20:14:58</sys_updated_on>
+            <sys_updated_on>2017-07-06 18:14:25</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>

@@ -113,6 +113,34 @@
             <sys_user/>
             <type/>
         </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>background_gradient1</element>
+            <position>8</position>
+            <sys_created_by>sush.chandrashekar</sys_created_by>
+            <sys_created_on>2017-07-11 18:18:45</sys_created_on>
+            <sys_id>99104457db7b7a0087c1fd441d9619aa</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_city_app_artifact" sys_domain="global" view="Default view">647402eadb9bb20087c1fd441d961996</sys_ui_section>
+            <sys_updated_by>sush.chandrashekar</sys_updated_by>
+            <sys_updated_on>2017-07-11 18:18:45</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>background_gradient2</element>
+            <position>9</position>
+            <sys_created_by>sush.chandrashekar</sys_created_by>
+            <sys_created_on>2017-07-11 18:18:47</sys_created_on>
+            <sys_id>65104857db7b7a0087c1fd441d96193f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_city_app_artifact" sys_domain="global" view="Default view">647402eadb9bb20087c1fd441d961996</sys_ui_section>
+            <sys_updated_by>sush.chandrashekar</sys_updated_by>
+            <sys_updated_on>2017-07-11 18:18:47</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
         <sys_ui_section action="INSERT_OR_UPDATE">
             <caption/>
             <header>false</header>

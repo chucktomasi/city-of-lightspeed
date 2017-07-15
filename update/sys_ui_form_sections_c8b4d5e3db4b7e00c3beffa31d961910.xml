@@ -18,16 +18,16 @@
         <sys_ui_form_section action="INSERT_OR_UPDATE">
             <position>1</position>
             <sys_created_by>chuck.tomasi</sys_created_by>
-            <sys_created_on>2017-06-30 16:41:30</sys_created_on>
+            <sys_created_on>2017-06-30 16:55:02</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>115087efdbe7f200c3beffa31d9619d0</sys_id>
-            <sys_mod_count>1</sys_mod_count>
+            <sys_id>6f63cb23db2bf200c3beffa31d961956</sys_id>
+            <sys_mod_count>3</sys_mod_count>
             <sys_overrides/>
             <sys_ui_form display_value="x_snc_city_app" name="x_snc_city_app" sys_domain="global" view="Default view">c8b4d5e3db4b7e00c3beffa31d961910</sys_ui_form>
-            <sys_ui_section caption="Consumerization" display_value="Consumerization" name="x_snc_city_app" sys_domain="global" view="Default view">d95087efdbe7f200c3beffa31d9619bf</sys_ui_section>
+            <sys_ui_section caption="Repositories" display_value="Repositories" name="x_snc_city_app" sys_domain="global" view="Default view">eb63cb23db2bf200c3beffa31d961945</sys_ui_section>
             <sys_updated_by>chuck.tomasi</sys_updated_by>
-            <sys_updated_on>2017-06-30 16:41:30</sys_updated_on>
+            <sys_updated_on>2017-07-11 13:02:14</sys_updated_on>
         </sys_ui_form_section>
         <sys_ui_form_section action="INSERT_OR_UPDATE">
             <position>2</position>
@@ -35,83 +35,27 @@
             <sys_created_on>2017-06-30 16:55:02</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>ef63cb23db2bf200c3beffa31d961948</sys_id>
-            <sys_mod_count>1</sys_mod_count>
-            <sys_overrides/>
-            <sys_ui_form display_value="x_snc_city_app" name="x_snc_city_app" sys_domain="global" view="Default view">c8b4d5e3db4b7e00c3beffa31d961910</sys_ui_form>
-            <sys_ui_section caption="Automation" display_value="Automation" name="x_snc_city_app" sys_domain="global" view="Default view">1763cb23db2bf200c3beffa31d961944</sys_ui_section>
-            <sys_updated_by>chuck.tomasi</sys_updated_by>
-            <sys_updated_on>2017-06-30 16:55:02</sys_updated_on>
-        </sys_ui_form_section>
-        <sys_ui_form_section action="INSERT_OR_UPDATE">
-            <position>3</position>
-            <sys_created_by>chuck.tomasi</sys_created_by>
-            <sys_created_on>2017-06-30 16:55:02</sys_created_on>
-            <sys_domain>global</sys_domain>
-            <sys_domain_path>/</sys_domain_path>
-            <sys_id>e363cb23db2bf200c3beffa31d96194d</sys_id>
-            <sys_mod_count>1</sys_mod_count>
-            <sys_overrides/>
-            <sys_ui_form display_value="x_snc_city_app" name="x_snc_city_app" sys_domain="global" view="Default view">c8b4d5e3db4b7e00c3beffa31d961910</sys_ui_form>
-            <sys_ui_section caption="Integration" display_value="Integration" name="x_snc_city_app" sys_domain="global" view="Default view">2f63cb23db2bf200c3beffa31d961944</sys_ui_section>
-            <sys_updated_by>chuck.tomasi</sys_updated_by>
-            <sys_updated_on>2017-06-30 16:55:02</sys_updated_on>
-        </sys_ui_form_section>
-        <sys_ui_form_section action="INSERT_OR_UPDATE">
-            <position>4</position>
-            <sys_created_by>chuck.tomasi</sys_created_by>
-            <sys_created_on>2017-06-30 16:55:02</sys_created_on>
-            <sys_domain>global</sys_domain>
-            <sys_domain_path>/</sys_domain_path>
-            <sys_id>6f63cb23db2bf200c3beffa31d961951</sys_id>
-            <sys_mod_count>1</sys_mod_count>
-            <sys_overrides/>
-            <sys_ui_form display_value="x_snc_city_app" name="x_snc_city_app" sys_domain="global" view="Default view">c8b4d5e3db4b7e00c3beffa31d961910</sys_ui_form>
-            <sys_ui_section caption="Visibility" display_value="Visibility" name="x_snc_city_app" sys_domain="global" view="Default view">2763cb23db2bf200c3beffa31d961945</sys_ui_section>
-            <sys_updated_by>chuck.tomasi</sys_updated_by>
-            <sys_updated_on>2017-06-30 16:55:02</sys_updated_on>
-        </sys_ui_form_section>
-        <sys_ui_form_section action="INSERT_OR_UPDATE">
-            <position>5</position>
-            <sys_created_by>chuck.tomasi</sys_created_by>
-            <sys_created_on>2017-06-30 16:55:02</sys_created_on>
-            <sys_domain>global</sys_domain>
-            <sys_domain_path>/</sys_domain_path>
-            <sys_id>6f63cb23db2bf200c3beffa31d961956</sys_id>
-            <sys_mod_count>1</sys_mod_count>
-            <sys_overrides/>
-            <sys_ui_form display_value="x_snc_city_app" name="x_snc_city_app" sys_domain="global" view="Default view">c8b4d5e3db4b7e00c3beffa31d961910</sys_ui_form>
-            <sys_ui_section caption="Repositories" display_value="Repositories" name="x_snc_city_app" sys_domain="global" view="Default view">eb63cb23db2bf200c3beffa31d961945</sys_ui_section>
-            <sys_updated_by>chuck.tomasi</sys_updated_by>
-            <sys_updated_on>2017-06-30 16:55:02</sys_updated_on>
-        </sys_ui_form_section>
-        <sys_ui_form_section action="INSERT_OR_UPDATE">
-            <position>6</position>
-            <sys_created_by>chuck.tomasi</sys_created_by>
-            <sys_created_on>2017-06-30 16:55:02</sys_created_on>
-            <sys_domain>global</sys_domain>
-            <sys_domain_path>/</sys_domain_path>
             <sys_id>e363cb23db2bf200c3beffa31d96195c</sys_id>
-            <sys_mod_count>1</sys_mod_count>
+            <sys_mod_count>3</sys_mod_count>
             <sys_overrides/>
             <sys_ui_form display_value="x_snc_city_app" name="x_snc_city_app" sys_domain="global" view="Default view">c8b4d5e3db4b7e00c3beffa31d961910</sys_ui_form>
             <sys_ui_section caption="Architecture" display_value="Architecture" name="x_snc_city_app" sys_domain="global" view="Default view">e363cb23db2bf200c3beffa31d961946</sys_ui_section>
             <sys_updated_by>chuck.tomasi</sys_updated_by>
-            <sys_updated_on>2017-06-30 16:55:02</sys_updated_on>
+            <sys_updated_on>2017-07-11 13:02:14</sys_updated_on>
         </sys_ui_form_section>
         <sys_ui_form_section action="INSERT_OR_UPDATE">
-            <position>7</position>
+            <position>3</position>
             <sys_created_by>chuck.tomasi</sys_created_by>
             <sys_created_on>2017-06-30 16:35:22</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
             <sys_id>17ee7aafdbe7f200c3beffa31d961912</sys_id>
-            <sys_mod_count>1</sys_mod_count>
+            <sys_mod_count>3</sys_mod_count>
             <sys_overrides/>
             <sys_ui_form display_value="x_snc_city_app" name="x_snc_city_app" sys_domain="global" view="Default view">c8b4d5e3db4b7e00c3beffa31d961910</sys_ui_form>
             <sys_ui_section caption="Images" display_value="Images" name="x_snc_city_app" sys_domain="global" view="Default view">13ee7aafdbe7f200c3beffa31d96190d</sys_ui_section>
             <sys_updated_by>chuck.tomasi</sys_updated_by>
-            <sys_updated_on>2017-06-30 16:55:02</sys_updated_on>
+            <sys_updated_on>2017-07-11 13:02:14</sys_updated_on>
         </sys_ui_form_section>
         <sys_ui_form action="INSERT_OR_UPDATE">
             <name>x_snc_city_app</name>

@@ -5,111 +5,125 @@
             <element>name</element>
             <position>0</position>
             <sys_created_by>chuck.tomasi</sys_created_by>
-            <sys_created_on>2017-06-30 16:55:04</sys_created_on>
-            <sys_id>44730f23db2bf200c3beffa31d961979</sys_id>
+            <sys_created_on>2017-07-11 20:48:30</sys_created_on>
+            <sys_id>b252a89bdbfb7a00c3beffa31d9619c4</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_city_app" sys_domain="global" view="Default view">dd4fdb36db0b3e00c3beffa31d961969</sys_ui_section>
             <sys_updated_by>chuck.tomasi</sys_updated_by>
-            <sys_updated_on>2017-06-30 16:55:04</sys_updated_on>
-            <sys_user/>
-            <type/>
-        </sys_ui_element>
-        <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>flag_text</element>
-            <position>1</position>
-            <sys_created_by>chuck.tomasi</sys_created_by>
-            <sys_created_on>2017-06-30 16:55:04</sys_created_on>
-            <sys_id>c4730f23db2bf200c3beffa31d961979</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_ui_formatter/>
-            <sys_ui_section caption="NULL" display_value="" name="x_snc_city_app" sys_domain="global" view="Default view">dd4fdb36db0b3e00c3beffa31d961969</sys_ui_section>
-            <sys_updated_by>chuck.tomasi</sys_updated_by>
-            <sys_updated_on>2017-06-30 16:55:04</sys_updated_on>
+            <sys_updated_on>2017-07-11 20:48:30</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>.split</element>
-            <position>2</position>
+            <position>1</position>
             <sys_created_by>chuck.tomasi</sys_created_by>
-            <sys_created_on>2017-06-30 16:55:04</sys_created_on>
-            <sys_id>48730f23db2bf200c3beffa31d961979</sys_id>
+            <sys_created_on>2017-07-11 20:48:30</sys_created_on>
+            <sys_id>3a52a89bdbfb7a00c3beffa31d9619c4</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_city_app" sys_domain="global" view="Default view">dd4fdb36db0b3e00c3beffa31d961969</sys_ui_section>
             <sys_updated_by>chuck.tomasi</sys_updated_by>
-            <sys_updated_on>2017-06-30 16:55:04</sys_updated_on>
+            <sys_updated_on>2017-07-11 20:48:30</sys_updated_on>
             <sys_user/>
             <type>.split</type>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>active</element>
-            <position>3</position>
+            <position>2</position>
             <sys_created_by>chuck.tomasi</sys_created_by>
-            <sys_created_on>2017-06-30 16:55:04</sys_created_on>
-            <sys_id>c8730f23db2bf200c3beffa31d961979</sys_id>
+            <sys_created_on>2017-07-11 20:48:30</sys_created_on>
+            <sys_id>ba52a89bdbfb7a00c3beffa31d9619c4</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_city_app" sys_domain="global" view="Default view">dd4fdb36db0b3e00c3beffa31d961969</sys_ui_section>
             <sys_updated_by>chuck.tomasi</sys_updated_by>
-            <sys_updated_on>2017-06-30 16:55:04</sys_updated_on>
+            <sys_updated_on>2017-07-11 20:48:30</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>path</element>
-            <position>4</position>
+            <position>3</position>
             <sys_created_by>chuck.tomasi</sys_created_by>
-            <sys_created_on>2017-06-30 16:55:04</sys_created_on>
-            <sys_id>4c730f23db2bf200c3beffa31d961979</sys_id>
+            <sys_created_on>2017-07-11 20:48:30</sys_created_on>
+            <sys_id>3e52a89bdbfb7a00c3beffa31d9619c4</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_city_app" sys_domain="global" view="Default view">dd4fdb36db0b3e00c3beffa31d961969</sys_ui_section>
             <sys_updated_by>chuck.tomasi</sys_updated_by>
-            <sys_updated_on>2017-06-30 16:55:04</sys_updated_on>
+            <sys_updated_on>2017-07-11 20:48:30</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>.end_split</element>
-            <position>5</position>
+            <position>4</position>
             <sys_created_by>chuck.tomasi</sys_created_by>
-            <sys_created_on>2017-06-30 16:55:04</sys_created_on>
-            <sys_id>cc730f23db2bf200c3beffa31d961979</sys_id>
+            <sys_created_on>2017-07-11 20:48:30</sys_created_on>
+            <sys_id>be52a89bdbfb7a00c3beffa31d9619c4</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_city_app" sys_domain="global" view="Default view">dd4fdb36db0b3e00c3beffa31d961969</sys_ui_section>
             <sys_updated_by>chuck.tomasi</sys_updated_by>
-            <sys_updated_on>2017-06-30 16:55:04</sys_updated_on>
+            <sys_updated_on>2017-07-11 20:48:30</sys_updated_on>
             <sys_user/>
             <type>.end_split</type>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>overview_video</element>
-            <position>6</position>
+            <position>5</position>
             <sys_created_by>chuck.tomasi</sys_created_by>
-            <sys_created_on>2017-06-30 16:55:04</sys_created_on>
-            <sys_id>40730f23db2bf200c3beffa31d96197a</sys_id>
+            <sys_created_on>2017-07-11 20:48:30</sys_created_on>
+            <sys_id>3252a89bdbfb7a00c3beffa31d9619c5</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_city_app" sys_domain="global" view="Default view">dd4fdb36db0b3e00c3beffa31d961969</sys_ui_section>
             <sys_updated_by>chuck.tomasi</sys_updated_by>
-            <sys_updated_on>2017-06-30 16:55:04</sys_updated_on>
+            <sys_updated_on>2017-07-11 20:48:30</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>description</element>
-            <position>7</position>
+            <position>6</position>
             <sys_created_by>chuck.tomasi</sys_created_by>
-            <sys_created_on>2017-06-30 16:55:04</sys_created_on>
-            <sys_id>c0730f23db2bf200c3beffa31d96197a</sys_id>
+            <sys_created_on>2017-07-11 20:48:30</sys_created_on>
+            <sys_id>b252a89bdbfb7a00c3beffa31d9619c5</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_city_app" sys_domain="global" view="Default view">dd4fdb36db0b3e00c3beffa31d961969</sys_ui_section>
             <sys_updated_by>chuck.tomasi</sys_updated_by>
-            <sys_updated_on>2017-06-30 16:55:04</sys_updated_on>
+            <sys_updated_on>2017-07-11 20:48:30</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>app_gradient_1</element>
+            <position>7</position>
+            <sys_created_by>chuck.tomasi</sys_created_by>
+            <sys_created_on>2017-07-11 20:48:30</sys_created_on>
+            <sys_id>3652a89bdbfb7a00c3beffa31d9619c5</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_city_app" sys_domain="global" view="Default view">dd4fdb36db0b3e00c3beffa31d961969</sys_ui_section>
+            <sys_updated_by>chuck.tomasi</sys_updated_by>
+            <sys_updated_on>2017-07-11 20:48:30</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>app_gradient_2</element>
+            <position>8</position>
+            <sys_created_by>chuck.tomasi</sys_created_by>
+            <sys_created_on>2017-07-11 20:48:30</sys_created_on>
+            <sys_id>b652a89bdbfb7a00c3beffa31d9619c5</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_city_app" sys_domain="global" view="Default view">dd4fdb36db0b3e00c3beffa31d961969</sys_ui_section>
+            <sys_updated_by>chuck.tomasi</sys_updated_by>
+            <sys_updated_on>2017-07-11 20:48:30</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>

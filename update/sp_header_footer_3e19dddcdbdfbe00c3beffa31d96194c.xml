@@ -10,6 +10,13 @@
     //background: #D7D3CC;&#13;
     overflow: hidden;&#13;
     height: 65px;&#13;
+    @media screen and (max-width: 780px) {&#13;
+        height: 30px;&#13;
+        display: flex;&#13;
+        align-items: center;&#13;
+        justify-content: center;&#13;
+        background: #000;&#13;
+    }&#13;
     .links-container {&#13;
         overflow-x: scroll;&#13;
     }&#13;
@@ -26,17 +33,29 @@
             padding: 5px;&#13;
         }&#13;
         a {&#13;
+            font-weight: 300;&#13;
             padding: 10px;&#13;
-            font-size: 18px;&#13;
-            color: #fff;&#13;
+            font-size: 12px;&#13;
+            color: #bbb;&#13;
             @media screen and (max-width: 990px) {&#13;
                 padding: 5px 10px;&#13;
             }&#13;
+        }&#13;
+        p {&#13;
+            font-size: 12px;&#13;
+            color: #bbb;&#13;
+            margin: 0px;&#13;
         }&#13;
     }&#13;
     .copyright {&#13;
         background: #C5C2BC;&#13;
         padding: 10px;&#13;
+        p {&#13;
+            margin-bottom: 0px;&#13;
+        }&#13;
+    }&#13;
+    .mobile-footer {&#13;
+        color: #AE987A;&#13;
         p {&#13;
             margin-bottom: 0px;&#13;
         }&#13;
@@ -64,7 +83,7 @@
         <sys_created_on>2017-06-07 20:35:46</sys_created_on>
         <sys_customer_update>true</sys_customer_update>
         <sys_id>3e19dddcdbdfbe00c3beffa31d96194c</sys_id>
-        <sys_mod_count>36</sys_mod_count>
+        <sys_mod_count>59</sys_mod_count>
         <sys_name>COLS Footer</sys_name>
         <sys_package display_value="City" source="x_snc_city">75d4ebaedb033e00c3beffa31d9619d8</sys_package>
         <sys_policy/>
@@ -72,18 +91,22 @@
         <sys_scope display_value="City">75d4ebaedb033e00c3beffa31d9619d8</sys_scope>
         <sys_update_name>sp_header_footer_3e19dddcdbdfbe00c3beffa31d96194c</sys_update_name>
         <sys_updated_by>sush.chandrashekar</sys_updated_by>
-        <sys_updated_on>2017-06-27 23:25:35</sys_updated_on>
+        <sys_updated_on>2017-07-12 06:30:14</sys_updated_on>
         <template><![CDATA[<div class="sample-footer">
-    <div class="links-container">
+    <div class="links-container hidden-xs">
         <div class="links ">
-            <a href="">Contact Us</a>
-            <a href="">Careers</a>
-            <a href="">Community</a>
-            <a href="">Resources</a>
-            <a href="">Terms of Use</a>
-            <a href="">Privacy Statement</a>
-            <a href="">Cookie Policy</a>
+            <a href="https://www.servicenow.com/contact-us-request-info.html" target="_blank">Contact Us</a>
+            <a href="https://www.servicenow.com/company/careers/join-servicenow.html" target="_blank">Careers</a>
+            <a href="https://community.servicenow.com/welcome" target="_blank">Community</a>
+            <a href="https://www.servicenow.com/resources.html" target="_blank">Resources</a>
+            <a href="https://www.servicenow.com/terms-of-use.html" target="_blank">Terms of Use</a>
+            <a href="https://www.servicenow.com/privacy-statement.html" target="_blank">Privacy Statement</a>
+            <a href="https://www.servicenow.com/cookie-policy.html" target="_blank">Cookie Policy</a>
+            <p>&copy; 2017 Servicenow. All rights reserved.</p>
         </div>
+    </div>
+    <div class="text-center mobile-footer visible-xs">
+        <p>&copy; 2017 Servicenow. All rights reserved.</p>
     </div>
 
 </div>]]></template>
